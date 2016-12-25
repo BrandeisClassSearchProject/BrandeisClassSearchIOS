@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4E9FA41E10138B008E5725 /* LeftSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA31E10138B008E5725 /* LeftSideTableViewCell.swift */; };
+		1C4E9FA71E1022C2008E5725 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */; };
+		1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */; };
+		1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */; };
 		1CEB42DA1E0999DF00B36E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */; };
 		1CEB42DC1E0999DF00B36E9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB42DB1E0999DF00B36E9C /* ViewController.swift */; };
 		1CEB42DF1E0999DF00B36E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB42DD1E0999DF00B36E9C /* Main.storyboard */; };
@@ -14,6 +18,11 @@
 		1CEB42E41E0999DF00B36E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB42E21E0999DF00B36E9C /* LaunchScreen.storyboard */; };
 		1CEB42EF1E0999DF00B36E9C /* BrandeisClassSearchIPHONETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB42EE1E0999DF00B36E9C /* BrandeisClassSearchIPHONETests.swift */; };
 		1CEB42FA1E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB42F91E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.swift */; };
+		1CEB43461E0B6FCB00B36E9C /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB43451E0B6FCB00B36E9C /* LeftSideViewController.swift */; };
+		1CEB43541E0B74AB00B36E9C /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB434C1E0B74AB00B36E9C /* MMDrawerBarButtonItem.m */; };
+		1CEB43551E0B74AB00B36E9C /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB434E1E0B74AB00B36E9C /* MMDrawerController.m */; };
+		1CEB43561E0B74AB00B36E9C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB43511E0B74AB00B36E9C /* MMDrawerVisualState.m */; };
+		1CEB43571E0B74AB00B36E9C /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB43531E0B74AB00B36E9C /* UIViewController+MMDrawerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4E9FA31E10138B008E5725 /* LeftSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideTableViewCell.swift; sourceTree = "<group>"; };
+		1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
+		1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
+		1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
 		1CEB42D61E0999DF00B36E9C /* BrandeisClassSearchIPHONE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrandeisClassSearchIPHONE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CEB42DB1E0999DF00B36E9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +60,17 @@
 		1CEB42F51E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrandeisClassSearchIPHONEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEB42F91E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandeisClassSearchIPHONEUITests.swift; sourceTree = "<group>"; };
 		1CEB42FB1E0999DF00B36E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CEB43451E0B6FCB00B36E9C /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
+		1CEB434A1E0B74AB00B36E9C /* BrandeisClassSearchIPHONE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrandeisClassSearchIPHONE-Bridging-Header.h"; sourceTree = "<group>"; };
+		1CEB434B1E0B74AB00B36E9C /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		1CEB434C1E0B74AB00B36E9C /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		1CEB434D1E0B74AB00B36E9C /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		1CEB434E1E0B74AB00B36E9C /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		1CEB434F1E0B74AB00B36E9C /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		1CEB43501E0B74AB00B36E9C /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		1CEB43511E0B74AB00B36E9C /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		1CEB43521E0B74AB00B36E9C /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		1CEB43531E0B74AB00B36E9C /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C4E9FA51E102152008E5725 /* OtherViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */,
+				1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */,
+				1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */,
+			);
+			name = OtherViewControllers;
+			sourceTree = "<group>";
+		};
 		1CEB42CD1E0999DF00B36E9C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +131,8 @@
 		1CEB42D81E0999DF00B36E9C /* BrandeisClassSearchIPHONE */ = {
 			isa = PBXGroup;
 			children = (
+				1C4E9FA51E102152008E5725 /* OtherViewControllers */,
+				1CEB43491E0B740B00B36E9C /* NavigationDrawerController */,
 				1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */,
 				1CEB42DB1E0999DF00B36E9C /* ViewController.swift */,
 				1CEB42DD1E0999DF00B36E9C /* Main.storyboard */,
@@ -123,6 +159,25 @@
 				1CEB42FB1E0999DF00B36E9C /* Info.plist */,
 			);
 			path = BrandeisClassSearchIPHONEUITests;
+			sourceTree = "<group>";
+		};
+		1CEB43491E0B740B00B36E9C /* NavigationDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				1CEB434B1E0B74AB00B36E9C /* MMDrawerBarButtonItem.h */,
+				1CEB434C1E0B74AB00B36E9C /* MMDrawerBarButtonItem.m */,
+				1CEB434D1E0B74AB00B36E9C /* MMDrawerController.h */,
+				1CEB434E1E0B74AB00B36E9C /* MMDrawerController.m */,
+				1CEB434F1E0B74AB00B36E9C /* MMDrawerController+Subclass.h */,
+				1CEB43501E0B74AB00B36E9C /* MMDrawerVisualState.h */,
+				1CEB43511E0B74AB00B36E9C /* MMDrawerVisualState.m */,
+				1CEB43521E0B74AB00B36E9C /* UIViewController+MMDrawerController.h */,
+				1CEB43531E0B74AB00B36E9C /* UIViewController+MMDrawerController.m */,
+				1CEB434A1E0B74AB00B36E9C /* BrandeisClassSearchIPHONE-Bridging-Header.h */,
+				1C4E9FA31E10138B008E5725 /* LeftSideTableViewCell.swift */,
+				1CEB43451E0B6FCB00B36E9C /* LeftSideViewController.swift */,
+			);
+			name = NavigationDrawerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +248,7 @@
 				TargetAttributes = {
 					1CEB42D51E0999DF00B36E9C = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					1CEB42E91E0999DF00B36E9C = {
@@ -260,7 +316,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CEB42DC1E0999DF00B36E9C /* ViewController.swift in Sources */,
+				1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */,
+				1C4E9FA41E10138B008E5725 /* LeftSideTableViewCell.swift in Sources */,
+				1C4E9FA71E1022C2008E5725 /* MyClassesViewController.swift in Sources */,
+				1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */,
+				1CEB43461E0B6FCB00B36E9C /* LeftSideViewController.swift in Sources */,
+				1CEB43541E0B74AB00B36E9C /* MMDrawerBarButtonItem.m in Sources */,
+				1CEB43571E0B74AB00B36E9C /* UIViewController+MMDrawerController.m in Sources */,
+				1CEB43551E0B74AB00B36E9C /* MMDrawerController.m in Sources */,
 				1CEB42DA1E0999DF00B36E9C /* AppDelegate.swift in Sources */,
+				1CEB43561E0B74AB00B36E9C /* MMDrawerVisualState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,10 +475,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -422,10 +490,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -503,6 +573,7 @@
 				1CEB43001E0999DF00B36E9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CEB43011E0999DF00B36E9C /* Build configuration list for PBXNativeTarget "BrandeisClassSearchIPHONETests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +582,7 @@
 				1CEB43031E0999DF00B36E9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CEB43041E0999DF00B36E9C /* Build configuration list for PBXNativeTarget "BrandeisClassSearchIPHONEUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +591,7 @@
 				1CEB43061E0999DF00B36E9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

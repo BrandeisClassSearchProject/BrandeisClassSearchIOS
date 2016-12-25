@@ -12,10 +12,35 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var centerContainer: MMDrawerController?
+    
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        print("didFinishLaunchingWithOptions in AppDelegate")
+        //var rootViewController = self.window!.rootViewController
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let centerViewController = mainStoryboard.instantiateViewController(withIdentifier: "center")
+        
+        let leftViewController = mainStoryboard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
+
+        
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        
+        leftSideNav.navigationBar.isHidden = true //hide the nav bar in LeftMenue
+        
+        let centerNav = UINavigationController(rootViewController: centerViewController)
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
+        window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
         return true
     }
 

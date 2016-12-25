@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func LeftSideMenuOpen(_ sender: Any) {
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+        
+        
+    }//单击左上 打开菜单
 
 }
 
