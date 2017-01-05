@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C16763C1E1B8F02007F448E /* RightSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16763B1E1B8F02007F448E /* RightSideViewController.swift */; };
+		1C16763E1E1B8F28007F448E /* RightSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16763D1E1B8F28007F448E /* RightSideTableViewCell.swift */; };
 		1C16E7E51E129F860045CED5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E7E41E129F860045CED5 /* TableViewCell.swift */; };
 		1C4E9FA71E1022C2008E5725 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */; };
 		1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */; };
 		1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */; };
+		1C794F0C1E15481A00307F3A /* CourseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C794F0B1E15481A00307F3A /* CourseDictionary.swift */; };
 		1CD5CE1D1E136B7F0014D330 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */; };
 		1CD5CE1E1E136B7F0014D330 /* LeftSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */; };
 		1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE231E13E1980014D330 /* FileUtil.swift */; };
@@ -47,12 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = ../../RightSideViewController.swift; sourceTree = "<group>"; };
+		1C16763D1E1B8F28007F448E /* RightSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideTableViewCell.swift; path = ../../RightSideTableViewCell.swift; sourceTree = "<group>"; };
 		1C16E7E41E129F860045CED5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
 		1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
-		1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
-		1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideTableViewCell.swift; sourceTree = "<group>"; };
+		1C794F0B1E15481A00307F3A /* CourseDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDictionary.swift; sourceTree = "<group>"; };
+		1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftSideViewController.swift; path = ../LeftSideViewController.swift; sourceTree = "<group>"; };
+		1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftSideTableViewCell.swift; path = ../LeftSideTableViewCell.swift; sourceTree = "<group>"; };
 		1CD5CE231E13E1980014D330 /* FileUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		1CD5CE271E13F7DD0014D330 /* Data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data.txt; sourceTree = "<group>"; };
 		1CD5CE2B1E1402F40014D330 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
@@ -106,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C1676401E1B8F66007F448E /* RightLeftDrawerControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C16763B1E1B8F02007F448E /* RightSideViewController.swift */,
+				1C16763D1E1B8F28007F448E /* RightSideTableViewCell.swift */,
+				1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */,
+				1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */,
+			);
+			path = RightLeftDrawerControllers;
+			sourceTree = "<group>";
+		};
 		1C16E7E21E12979B0045CED5 /* MainTableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +136,7 @@
 			children = (
 				1CD5CE231E13E1980014D330 /* FileUtil.swift */,
 				1CD5CE2B1E1402F40014D330 /* StreamReader.swift */,
+				1C794F0B1E15481A00307F3A /* CourseDictionary.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -160,10 +178,9 @@
 				1C16E7E21E12979B0045CED5 /* MainTableCells */,
 				1C4E9FA51E102152008E5725 /* OtherViewControllers */,
 				1CEB43491E0B740B00B36E9C /* NavigationDrawerController */,
-				1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */,
-				1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */,
-				1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */,
+				1C1676401E1B8F66007F448E /* RightLeftDrawerControllers */,
 				1CEB434A1E0B74AB00B36E9C /* BrandeisClassSearchIPHONE-Bridging-Header.h */,
+				1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */,
 				1CEB42DB1E0999DF00B36E9C /* ViewController.swift */,
 				1CEB42DD1E0999DF00B36E9C /* Main.storyboard */,
 				1CEB42E01E0999DF00B36E9C /* Assets.xcassets */,
@@ -345,9 +362,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD5CE1D1E136B7F0014D330 /* LeftSideViewController.swift in Sources */,
+				1C794F0C1E15481A00307F3A /* CourseDictionary.swift in Sources */,
 				1CD5CE1E1E136B7F0014D330 /* LeftSideTableViewCell.swift in Sources */,
 				1CEB42DC1E0999DF00B36E9C /* ViewController.swift in Sources */,
 				1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */,
+				1C16763C1E1B8F02007F448E /* RightSideViewController.swift in Sources */,
 				1C4E9FA71E1022C2008E5725 /* MyClassesViewController.swift in Sources */,
 				1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */,
 				1CEB43541E0B74AB00B36E9C /* MMDrawerBarButtonItem.m in Sources */,
@@ -358,6 +377,7 @@
 				1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */,
 				1CEB42DA1E0999DF00B36E9C /* AppDelegate.swift in Sources */,
 				1CEB43561E0B74AB00B36E9C /* MMDrawerVisualState.m in Sources */,
+				1C16763E1E1B8F28007F448E /* RightSideTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
