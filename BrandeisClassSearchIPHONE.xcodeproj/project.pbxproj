@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = ../../RightSideViewController.swift; sourceTree = "<group>"; };
+		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = "/Users/rozoalex/Documents/IOS projects/BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE/RightLeftDrawerControllers/../../RightSideViewController.swift"; sourceTree = "<absolute>"; };
 		1C16763D1E1B8F28007F448E /* RightSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideTableViewCell.swift; path = ../../RightSideTableViewCell.swift; sourceTree = "<group>"; };
 		1C16E7E41E129F860045CED5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };

@@ -7,11 +7,15 @@ import UIKit
 
 
 
-class RightSideViewController: UITableViewController{
+class RightSideViewController: UITableViewController, UISearchBarDelegate{
     
     var suggestions: [String] = []
     var searchController: UISearchController!
     var resultController = UITableViewController()
+    let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
 
     override func viewDidLoad() {
@@ -25,21 +29,34 @@ class RightSideViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if suggestions.count > 8 {
-            return 8
-        }else {
-            return suggestions.count
-        }
+        return suggestions.count
     }
     
-//    override func application{
-//        
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = self.suggestions[indexPath.row]
         return cell
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        suggestions = appDel.courseDictionary!.suggestions(courseID: searchText)
+        var s: String=""
+        for strings in suggestions{
+            s = s+strings+"\n"
+        }
+        print("suggestions:\n\(s)")
+        self.refreshControl?.beginRefreshing()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarSearchButtonClicked")
     }
  
 
