@@ -28,6 +28,10 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
         // Do any additional setup after loading the view.
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestions.count
     }
@@ -41,14 +45,18 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        suggestions = appDel.courseDictionary!.suggestions(courseID: searchText)
-        var s: String=""
-        for strings in suggestions{
-            s = s+strings+"\n"
+        if (searchText as NSString).length > 2 {
+            print(searchText)
+            suggestions = appDel.courseDictionary!.suggestions(courseID: searchText)
+            var s: String=""
+            for strings in suggestions{
+                s = s+strings+"\n"
+            }
+            print("suggestions:\n\(s)")
+            self.tableView.reloadData()
+        }else  {
+            suggestions = [] //replace with history later 改成显示历史！
         }
-        print("suggestions:\n\(s)")
-        self.refreshControl?.beginRefreshing()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
