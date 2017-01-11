@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1566FD1E26543C009F98AF /* CourseDataItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1566FC1E26543C009F98AF /* CourseDataItemStore.swift */; };
 		1C16763C1E1B8F02007F448E /* RightSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16763B1E1B8F02007F448E /* RightSideViewController.swift */; };
 		1C16E7E51E129F860045CED5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E7E41E129F860045CED5 /* TableViewCell.swift */; };
 		1C2AB5021E2395ED00858533 /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2AB5011E2395ED00858533 /* MainTableController.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		17078B5EEA301E6383B64169 /* Pods_BrandeisClassSearchIPHONE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrandeisClassSearchIPHONE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C1566FC1E26543C009F98AF /* CourseDataItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDataItemStore.swift; sourceTree = "<group>"; };
 		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = "/Users/rozoalex/Documents/IOS projects/BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE/RightLeftDrawerControllers/RightSideViewController.swift"; sourceTree = "<absolute>"; };
 		1C16E7E41E129F860045CED5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		1C2AB5011E2395ED00858533 /* MainTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				1CD5CE2B1E1402F40014D330 /* StreamReader.swift */,
 				1C794F0B1E15481A00307F3A /* CourseDictionary.swift */,
 				1C2AB5031E23975300858533 /* CourseDataItem.swift */,
+				1C1566FC1E26543C009F98AF /* CourseDataItemStore.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */,
 				1CEB43541E0B74AB00B36E9C /* MMDrawerBarButtonItem.m in Sources */,
 				1CEB43571E0B74AB00B36E9C /* UIViewController+MMDrawerController.m in Sources */,
+				1C1566FD1E26543C009F98AF /* CourseDataItemStore.swift in Sources */,
 				1C2AB5041E23975300858533 /* CourseDataItem.swift in Sources */,
 				1CEB43551E0B74AB00B36E9C /* MMDrawerController.m in Sources */,
 				1C16E7E51E129F860045CED5 /* TableViewCell.swift in Sources */,
