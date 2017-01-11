@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1C8919C71DFFB68B4EF032EE0F8964163EA0D76E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2C6A83076BB56EFCDD9986CA37059E61450D9863" : 9223372036854775807,
+    "1C8919C71DFFB68B4EF032EE0F8964163EA0D76E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CC080109-BB7A-45C2-8C44-95099C3D678B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2C6A83076BB56EFCDD9986CA37059E61450D9863" : "..\/Documents\/IOS%20projects\/BrandeisClassSearchIPHONE\/BrandeisClassSearchIPHONE",
+    "1C8919C71DFFB68B4EF032EE0F8964163EA0D76E" : "BrandeisClassSearchIPHONE%20copy\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BrandeisClassSearchIPHONE",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BrandeisClassSearchIPHONE.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BrandeisClassSearchProject\/BrandeisClassSearchIPHONE.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C8919C71DFFB68B4EF032EE0F8964163EA0D76E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rozoalex\/BrandeisClassSearchIPHONE.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2C6A83076BB56EFCDD9986CA37059E61450D9863"
+    }
+  ]
+}
