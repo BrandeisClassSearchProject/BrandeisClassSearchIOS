@@ -14,7 +14,6 @@
 		1C1567071E26AEDA009F98AF /* TableCellDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1567061E26AEDA009F98AF /* TableCellDescription.swift */; };
 		1C1567091E26AF36009F98AF /* TableCellTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1567081E26AF36009F98AF /* TableCellTeacher.swift */; };
 		1C15670B1E26AFAC009F98AF /* TableCellBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */; };
-		1C15670F1E273883009F98AF /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15670E1E273883009F98AF /* Attribute.swift */; };
 		1C16763C1E1B8F02007F448E /* RightSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16763B1E1B8F02007F448E /* RightSideViewController.swift */; };
 		1C2AB5041E23975300858533 /* CourseDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2AB5031E23975300858533 /* CourseDataItem.swift */; };
 		1C4E9FA71E1022C2008E5725 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */; };
@@ -70,7 +69,6 @@
 		1C1567061E26AEDA009F98AF /* TableCellDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellDescription.swift; sourceTree = "<group>"; };
 		1C1567081E26AF36009F98AF /* TableCellTeacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellTeacher.swift; sourceTree = "<group>"; };
 		1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellBooks.swift; sourceTree = "<group>"; };
-		1C15670E1E273883009F98AF /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = "/Users/rozoalex/Documents/IOS projects/BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE/RightLeftDrawerControllers/RightSideViewController.swift"; sourceTree = "<absolute>"; };
 		1C2AB5031E23975300858533 /* CourseDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDataItem.swift; sourceTree = "<group>"; };
 		1C4E9FA61E1022C2008E5725 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				1C794F0B1E15481A00307F3A /* CourseDictionary.swift */,
 				1C2AB5031E23975300858533 /* CourseDataItem.swift */,
 				1C1566FC1E26543C009F98AF /* CourseDataItemStore.swift */,
-				1C15670E1E273883009F98AF /* Attribute.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */,
 				1C1567091E26AF36009F98AF /* TableCellTeacher.swift in Sources */,
 				1CEB42DA1E0999DF00B36E9C /* AppDelegate.swift in Sources */,
-				1C15670F1E273883009F98AF /* Attribute.swift in Sources */,
 				1CEB43561E0B74AB00B36E9C /* MMDrawerVisualState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

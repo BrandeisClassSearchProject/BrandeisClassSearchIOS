@@ -6,6 +6,8 @@ target 'BrandeisClassSearchIPHONE' do
   use_frameworks!
   	pod 'Alamofire', '~> 4.0'
 	pod 'Kanna', '~> 2.1.0'
+    pod 'NVActivityIndicatorView'
+    
   
   # Pods for BrandeisClassSearchIPHONE
 	
