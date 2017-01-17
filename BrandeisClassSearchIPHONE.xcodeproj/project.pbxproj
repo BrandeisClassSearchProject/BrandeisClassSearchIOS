@@ -38,6 +38,7 @@
 		1CEB43551E0B74AB00B36E9C /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB434E1E0B74AB00B36E9C /* MMDrawerController.m */; };
 		1CEB43561E0B74AB00B36E9C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB43511E0B74AB00B36E9C /* MMDrawerVisualState.m */; };
 		1CEB43571E0B74AB00B36E9C /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB43531E0B74AB00B36E9C /* UIViewController+MMDrawerController.m */; };
+		1CEEE6AF1E2DEBDD00F18871 /* TableCellWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEEE6AE1E2DEBDD00F18871 /* TableCellWaiting.swift */; };
 		CADF4F2F29399704DC1950AA /* Pods_BrandeisClassSearchIPHONEUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA362DE75372F026D432E87 /* Pods_BrandeisClassSearchIPHONEUITests.framework */; };
 		CBF67A130AD3ED5A2408BFA3 /* Pods_BrandeisClassSearchIPHONE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17078B5EEA301E6383B64169 /* Pods_BrandeisClassSearchIPHONE.framework */; };
 		FBB1C9AACBC8E305D3B10CEB /* Pods_BrandeisClassSearchIPHONETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F64FDE5412E370772261AA /* Pods_BrandeisClassSearchIPHONETests.framework */; };
@@ -106,6 +107,7 @@
 		1CEB43511E0B74AB00B36E9C /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		1CEB43521E0B74AB00B36E9C /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		1CEB43531E0B74AB00B36E9C /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		1CEEE6AE1E2DEBDD00F18871 /* TableCellWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellWaiting.swift; sourceTree = "<group>"; };
 		1F8B39A1D3BA249EEE79DC8D /* Pods-BrandeisClassSearchIPHONE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONE/Pods-BrandeisClassSearchIPHONE.debug.xcconfig"; sourceTree = "<group>"; };
 		49F64FDE5412E370772261AA /* Pods_BrandeisClassSearchIPHONETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrandeisClassSearchIPHONETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9878B8F46A797F68A62A7987 /* Pods-BrandeisClassSearchIPHONEUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONEUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONEUITests/Pods-BrandeisClassSearchIPHONEUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				1C1567061E26AEDA009F98AF /* TableCellDescription.swift */,
 				1C1567081E26AF36009F98AF /* TableCellTeacher.swift */,
 				1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */,
+				1CEEE6AE1E2DEBDD00F18871 /* TableCellWaiting.swift */,
 			);
 			path = MainTableCells;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				1C1567051E26AE67009F98AF /* TableCellTime.swift in Sources */,
 				1CD5CE1E1E136B7F0014D330 /* LeftSideTableViewCell.swift in Sources */,
 				1C1567071E26AEDA009F98AF /* TableCellDescription.swift in Sources */,
+				1CEEE6AF1E2DEBDD00F18871 /* TableCellWaiting.swift in Sources */,
 				1CEB42DC1E0999DF00B36E9C /* ViewController.swift in Sources */,
 				1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */,
 				1CE3B9321E1F41AA00116E84 /* RightSideTableViewCell.swift in Sources */,
