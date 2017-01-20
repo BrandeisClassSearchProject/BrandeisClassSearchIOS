@@ -103,7 +103,6 @@
 		1CEB42F51E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrandeisClassSearchIPHONEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEB42F91E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandeisClassSearchIPHONEUITests.swift; sourceTree = "<group>"; };
 		1CEB42FB1E0999DF00B36E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CEB434A1E0B74AB00B36E9C /* BrandeisClassSearchIPHONE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrandeisClassSearchIPHONE-Bridging-Header.h"; sourceTree = "<group>"; };
 		1CEB434B1E0B74AB00B36E9C /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		1CEB434C1E0B74AB00B36E9C /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		1CEB434D1E0B74AB00B36E9C /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
@@ -241,7 +240,6 @@
 				1C4E9FA51E102152008E5725 /* OtherViewControllers */,
 				1CEB43491E0B740B00B36E9C /* NavigationDrawerController */,
 				1C1676401E1B8F66007F448E /* RightLeftDrawerControllers */,
-				1CEB434A1E0B74AB00B36E9C /* BrandeisClassSearchIPHONE-Bridging-Header.h */,
 				1CEB42D91E0999DF00B36E9C /* AppDelegate.swift */,
 				1CEB42DB1E0999DF00B36E9C /* ViewController.swift */,
 				1CEB42DD1E0999DF00B36E9C /* Main.storyboard */,
@@ -777,7 +775,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -793,7 +793,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BrandeisClassSearchIPHONE/BrandeisClassSearchIPHONE-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

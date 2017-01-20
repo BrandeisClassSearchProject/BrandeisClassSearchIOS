@@ -7,6 +7,7 @@ target 'BrandeisClassSearchIPHONE' do
   	pod 'Alamofire', '~> 4.0'
 	pod 'Kanna', '~> 2.1.0'
     pod 'NVActivityIndicatorView'
+    pod 'MMDrawerController', '~> 0.5.7'
     
   
   # Pods for BrandeisClassSearchIPHONE
