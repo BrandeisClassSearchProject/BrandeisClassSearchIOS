@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.2.0)
+  - Kanna (2.1.1)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
+  - NVActivityIndicatorView (3.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - Kanna (~> 2.1.0)
+  - MMDrawerController (~> 0.5.7)
+  - NVActivityIndicatorView
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  NVActivityIndicatorView: 9f47e8a4affb860ef729aeec99b1550219e6c233
+
+PODFILE CHECKSUM: 9c4d7f4e44a63beb02cc3a6c3dcde13f7ad15880
+
+COCOAPODS: 1.1.1
