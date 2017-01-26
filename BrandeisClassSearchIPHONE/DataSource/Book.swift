@@ -9,21 +9,60 @@
 import Foundation
 
 class Book {
-    let author: String?
-    let edition: String?
-    let ISBN: String?
-    let copyrightYear: String?
-    let publisher: String?
-    let imageURL: String?
+    var author: String?
+    var edition: String?
+    var ISBN: String?
+    var copyrightYear: String?
+    var publisher: String?
+    var imageURL: String?
+    var title: String?
     
     
-    init(author:String, edition: String, ISBN: String, copyright: String, publisher: String, imageUrl: String) {
-        self.author = author
-        self.copyrightYear = copyright
-        self.edition = edition
-        self.publisher = publisher
-        self.ISBN = ISBN
-        self.imageURL = imageUrl
+    //we assume the given string is correct
+    init(allInfoAboutBook: String) {
+        
+        let infoArray: [String] = allInfoAboutBook.components(separatedBy: "\n")
+        
+        for infoAboutBook in infoArray {
+            if infoAboutBook.hasPrefix("Author:"){
+                author = infoAboutBook.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("ISBN:"){
+                ISBN = infoAboutBook.replacingOccurrences(of: "ISBN:", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("Copyright Year:"){
+                copyrightYear = infoAboutBook.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("Publisher:"){
+                publisher = infoAboutBook.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("Edition:"){
+                edition = infoAboutBook.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("Title:"){
+                title = infoAboutBook.replacingOccurrences(of: "Title:", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            }else if infoAboutBook.hasPrefix("Image:"){
+                imageURL = "https:"+infoAboutBook.replacingOccurrences(of: "Image:", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            }
+        }
+        
     }
+
+    
+    public func infos() -> String{
+        var s = ""
+        if let a = author {
+            s += a + "\n"
+        }
+        if let e = edition {
+            s += e + "\n"
+        }
+        if let p = publisher {
+            s += p
+        }
+        return s
+    }
+
     
 }

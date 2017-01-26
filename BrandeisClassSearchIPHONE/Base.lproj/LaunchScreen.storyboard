@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
@@ -22,14 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="yo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arJ-yQ-axt">
-                                <rect key="frame" x="127" y="169" width="184" height="214"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="WechatIMG4" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-ag-ICV">
-                                <rect key="frame" x="84" y="245" width="240" height="128"/>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG4" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-ag-ICV">
+                                <rect key="frame" x="16" y="0.0" width="343" height="700"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="700" id="D0U-9U-tyH"/>
                                 </constraints>
@@ -40,10 +34,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="C3e-ag-ICV" secondAttribute="trailing" id="45H-pp-znQ"/>
                             <constraint firstItem="C3e-ag-ICV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="GdB-X8-Sl7"/>
                             <constraint firstItem="C3e-ag-ICV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="Luq-hl-xSy"/>
-                            <constraint firstItem="arJ-yQ-axt" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="euR-gF-V7g"/>
-                            <constraint firstItem="arJ-yQ-axt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="ngR-2R-LW1"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

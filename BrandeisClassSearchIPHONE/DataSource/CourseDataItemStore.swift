@@ -81,6 +81,17 @@ class CourseDataItemStore {
         return courseDataItemStore[index].resultList
     }
     
+    //Type is unique in an store
+    public func getResult(type: Attribute) -> [String]{
+        for item in courseDataItemStore {
+            if item.attribute == type {
+                return item.resultList
+            }
+        }
+        print("ERROR: getResult in ItemStore cannot find result for type \(type.getHeader())\n       Return an empty array")
+        return []
+    }
+    
     public func isDone() -> Bool{
         var isDone = false
         for item in courseDataItemStore {

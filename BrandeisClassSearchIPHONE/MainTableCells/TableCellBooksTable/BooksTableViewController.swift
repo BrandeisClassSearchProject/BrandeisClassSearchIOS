@@ -4,87 +4,97 @@
 //
 //  Created by Yuanze Hu on 1/19/17.
 //  Copyright © 2017 Yuanze Hu. All rights reserved.
+//  use CACHE to store images and concurrenly download them
 //
 
 import UIKit
+import SDWebImage
 
 class BooksTableViewController: UITableViewController {
+    
+    //var cache = NSCache<AnyObject, AnyObject>()
+    var resultList : [String]?
+    var bookList: [Book]?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if (resultList?.count)! < 1 {
+            print("ERROR: The BooksTableViewController got an empty result list! ")
+            return
+        }else{
+            //for s in resultList!{
+            //    print(">>>>>  \(s)")
+            //}
+        
+            
+            bookList = makeBookList(stringsOfBooks: resultList!)
+        }
+        
+        //do nothing if something went wrong and the list is empty
+        
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if resultList == nil {
+            return 0
+        }else{
+            return resultList!.count
+        }
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if resultList == nil{
+            return UITableViewCell()
+        }else{
+            let mycell = tableView.dequeueReusableCell(withIdentifier: "BooksCell", for: indexPath) as! BooksCell
+            mycell.bookTitle.text = bookList?[indexPath.row].title
+            mycell.bookText?.text = bookList?[indexPath.row].infos()
+            print("textLabel: \n\(mycell.textLabel?.text)")
+            
+            if let url = URL(string: bookList![indexPath.row].imageURL!){
+                mycell.bookCover.sd_setImage(with: url)
+            }else{
+                print("Not able to set image for index \(indexPath.row)")
+            }
+            
+            
+            
+            
+//            if let img = cache.object(forKey: indexPath.row as AnyObject) {
+//                mycell.bookCover.image = img as? UIImage
+//            }else {
+//                DispatchQueue.global().async {
+//                    let url: String = (self.bookList?[indexPath.row].imageURL)!
+//                    let data = NSData(contentsOf: URL(string: url)!)
+//                    DispatchQueue.main.async {
+//                        mycell.bookCover.image = UIImage(data: data as! Data)
+//                        self.cache.setObject(UIImage(data: data as! Data)!, forKey: indexPath.row as AnyObject)
+//                        print("put up image ar \(indexPath.row)")
+//                    }
+//                }
+//            }
+            
+            
+            //print("  For book table cell at index \(indexPath.row), put:\n\(mycell.bookText.text)")
+            return mycell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    private func makeBookList(stringsOfBooks: [String]) -> [Book] {
+        var tempBookList = [Book]()
+        for bookString in stringsOfBooks{
+            tempBookList.append(Book(allInfoAboutBook: bookString))
+            
+        }
+        return tempBookList
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

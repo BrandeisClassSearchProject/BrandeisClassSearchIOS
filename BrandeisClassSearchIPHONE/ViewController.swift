@@ -102,9 +102,33 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if let a = courseDataItemStore?.courseDataItemStore[indexPath.row].attribute {
+            
+            switch a{
+            case .BOOK:
+                if (courseDataItemStore?.getResult(index: indexPath.row).isEmpty)!{
+                    return
+                }
+                print("Switch to BooksTableView")
+                let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksTableView") as!BooksTableViewController
+                myVC.resultList = courseDataItemStore?.getResult(index: indexPath.row)
+                navigationController?.pushViewController(myVC, animated: true)
+                break
+            default:
+                print(" Not implemented yet......")
+            }
+            
+        }
+        
+        
+        
+        
+    }
     
-
-       
+    //standard, get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if courseDataItemStore == nil {
             print("courseDataItemStore is fucking nil ?! ")
@@ -116,6 +140,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     }
     
     //return and set views according to different items
+    //need reforming in the future 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isReload {
             if indexPath.row == (courseDataItemStore?.courseDataItemStore.count)!-1 {

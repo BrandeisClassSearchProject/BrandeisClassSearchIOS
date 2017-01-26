@@ -279,6 +279,7 @@ class CourseDataItem {
     
     private func parseWithKannaBook(htmlString: String) -> [String] {
         //let booksInfo = [String]()
+        print("parseWithKannaBook")
         if let doc = Kanna.HTML(html: htmlString, encoding: String.Encoding.utf8) {
             let materialsRequired =  doc.xpath("//div[@class='efCourseHeader-list']//p//a[@href='#material-group-name_REQUIRED_1_1']")
             if materialsRequired.count < 1 {
@@ -289,11 +290,66 @@ class CourseDataItem {
                 print("books: \(materialsRequiredString)")
                 resultList2.append(materialsRequiredString)
             }
+            var results: [String] = []
             
-            return ["Books"]
+
+            let roots = doc.xpath("//ul[@id='material-group-list_REQUIRED_1_1']") //save a closer one for reusing
             
+            if roots.count != 1{
+                print("something wrong...number of [material-group-list_REQUIRED_1_1] is not one")
+                return []
+            }//stop if roots is not one
+            
+            let root = roots[0]
+            
+            
+            
+            let imgs = root.xpath("//span[@id='materialTitleImage']//img/@src")//the attribute stores all the url for images
+            
+            let titles = root.xpath("//span[@id='materialTitleImage']//img/@alt")//the attribute stores all the name of the book
+            
+            if imgs.count != titles.count {
+                print("something wrong...cannot have correct imgs, number of imgs is \(imgs.count)")
+                return []
+            }
+            
+            //var bookGroupDetails = root.xpath("//div[@class='material-group-details top-set ']")
+            let bookMaterialGroupDetail = root.xpath("//div[@class='material-group-edition']")
+            
+            if bookMaterialGroupDetail.count != titles.count{
+                print("something wrong...cannot have correct number of details and titles")
+                return []
+            }
+            
+            for i in 0...titles.count-1 {
+                var tempString = ""
+                if let text = titles[i].text {
+                    tempString += "Title:" + text + "\n"
+                }
+                
+                if let img = imgs[i].text{
+                    tempString += "Image:" + img + "\n"
+                }
+                //print(bookMaterialGroupDetail[i].content ?? "no content")
+                for s in bookMaterialGroupDetail[i].css("span"){
+                    if let sp = s.text {
+                        if !sp.isEmpty{
+                            tempString += sp + "\n"
+                        }
+                    }else{
+                        print("What? The s.text is nil")
+                    }
+                }
+                print("   Append at \(i): \n\(tempString)")
+                results.append(tempString)
+            }
+            
+            if results.count == 0 {
+                print("  There is no books or something went wrong  ")
+            }
+            return results
         }else{
-            print("parseWithKannaBook Failed  htmlString: \(htmlString)")
+            print("parseWithKannaBook Failed  htmlString: ")
             return []
         }
         

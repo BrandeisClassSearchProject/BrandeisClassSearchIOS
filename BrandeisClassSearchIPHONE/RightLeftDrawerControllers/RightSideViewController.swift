@@ -4,7 +4,7 @@
 //  This class handles all the navigation actions
 
 import UIKit
-
+import MMDrawerController
 
 
 class RightSideViewController: UITableViewController, UISearchBarDelegate{
@@ -25,7 +25,7 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
         super.viewDidLoad()
         print("viewDidLoad in RightSideViewController")
         tableView.estimatedRowHeight = 65
-        var textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
         // Do any additional setup after loading the view.
     }

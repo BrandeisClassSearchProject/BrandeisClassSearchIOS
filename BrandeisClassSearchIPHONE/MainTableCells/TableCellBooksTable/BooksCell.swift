@@ -11,6 +11,7 @@ import UIKit
 class BooksCell: UITableViewCell {
     
     
+    @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var bookText: UITextView!
    
