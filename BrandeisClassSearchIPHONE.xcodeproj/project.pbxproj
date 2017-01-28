@@ -16,6 +16,10 @@
 		1C1567091E26AF36009F98AF /* TableCellTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1567081E26AF36009F98AF /* TableCellTeacher.swift */; };
 		1C15670B1E26AFAC009F98AF /* TableCellBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */; };
 		1C16763C1E1B8F02007F448E /* RightSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16763B1E1B8F02007F448E /* RightSideViewController.swift */; };
+		1C183C431E3A678E0077E507 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C183C421E3A678E0077E507 /* NotificationCenter.framework */; };
+		1C183C461E3A678E0077E507 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C183C451E3A678E0077E507 /* TodayViewController.swift */; };
+		1C183C491E3A678E0077E507 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C183C471E3A678E0077E507 /* MainInterface.storyboard */; };
+		1C183C4D1E3A678E0077E507 /* ClassScheduleWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C183C411E3A678E0077E507 /* ClassScheduleWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1C2AB5041E23975300858533 /* CourseDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2AB5031E23975300858533 /* CourseDataItem.swift */; };
 		1C36AF2D1E31302900C88DEB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C36AF2C1E31302900C88DEB /* Book.swift */; };
 		1C36AF311E31400500C88DEB /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C36AF301E31400500C88DEB /* BooksTableViewController.swift */; };
@@ -24,6 +28,7 @@
 		1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */; };
 		1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */; };
 		1C794F0C1E15481A00307F3A /* CourseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C794F0B1E15481A00307F3A /* CourseDictionary.swift */; };
+		1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */; };
 		1CD5CE1D1E136B7F0014D330 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */; };
 		1CD5CE1E1E136B7F0014D330 /* LeftSideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */; };
 		1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD5CE231E13E1980014D330 /* FileUtil.swift */; };
@@ -45,6 +50,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1C183C4B1E3A678E0077E507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CEB42CE1E0999DF00B36E9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C183C401E3A678E0077E507;
+			remoteInfo = ClassScheduleWidget;
+		};
 		1CEB42EB1E0999DF00B36E9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1CEB42CE1E0999DF00B36E9C /* Project object */;
@@ -61,6 +73,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1C183C511E3A678E0077E507 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1C183C4D1E3A678E0077E507 /* ClassScheduleWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		17078B5EEA301E6383B64169 /* Pods_BrandeisClassSearchIPHONE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrandeisClassSearchIPHONE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C0F9BF71E341DAC003CD118 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -72,6 +98,11 @@
 		1C1567081E26AF36009F98AF /* TableCellTeacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellTeacher.swift; sourceTree = "<group>"; };
 		1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellBooks.swift; sourceTree = "<group>"; };
 		1C16763B1E1B8F02007F448E /* RightSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideViewController.swift; path = "/Users/rozoalex/Desktop/BrandeisClassSearchIPHONE copy/BrandeisClassSearchIPHONE/RightLeftDrawerControllers/RightSideViewController.swift"; sourceTree = "<absolute>"; };
+		1C183C411E3A678E0077E507 /* ClassScheduleWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClassScheduleWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C183C421E3A678E0077E507 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		1C183C451E3A678E0077E507 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		1C183C481E3A678E0077E507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1C183C4A1E3A678E0077E507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2AB5031E23975300858533 /* CourseDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDataItem.swift; sourceTree = "<group>"; };
 		1C36AF2C1E31302900C88DEB /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		1C36AF301E31400500C88DEB /* BooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +112,7 @@
 		1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
 		1C794F0B1E15481A00307F3A /* CourseDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDictionary.swift; sourceTree = "<group>"; };
 		1CA4DA896B0CF1F68EDA05F8 /* Pods-BrandeisClassSearchIPHONETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONETests/Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; sourceTree = "<group>"; };
+		1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedClasses.xcdatamodel; sourceTree = "<group>"; };
 		1CD5CE1B1E136B7F0014D330 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		1CD5CE1C1E136B7F0014D330 /* LeftSideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideTableViewCell.swift; sourceTree = "<group>"; };
 		1CD5CE231E13E1980014D330 /* FileUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
@@ -112,6 +144,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C183C3E1E3A678E0077E507 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C183C431E3A678E0077E507 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1CEB42D31E0999DF00B36E9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,6 +219,16 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		1C183C441E3A678E0077E507 /* ClassScheduleWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1C183C451E3A678E0077E507 /* TodayViewController.swift */,
+				1C183C471E3A678E0077E507 /* MainInterface.storyboard */,
+				1C183C4A1E3A678E0077E507 /* Info.plist */,
+			);
+			path = ClassScheduleWidget;
+			sourceTree = "<group>";
+		};
 		1C36AF2F1E313FC900C88DEB /* TableCellBooksTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +256,7 @@
 				1CEB42D81E0999DF00B36E9C /* BrandeisClassSearchIPHONE */,
 				1CEB42ED1E0999DF00B36E9C /* BrandeisClassSearchIPHONETests */,
 				1CEB42F81E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests */,
+				1C183C441E3A678E0077E507 /* ClassScheduleWidget */,
 				1CEB42D71E0999DF00B36E9C /* Products */,
 				A46D35921377404F82E12A7C /* Pods */,
 				E19C01C6A2A609A2C52352E3 /* Frameworks */,
@@ -218,6 +269,7 @@
 				1CEB42D61E0999DF00B36E9C /* BrandeisClassSearchIPHONE.app */,
 				1CEB42EA1E0999DF00B36E9C /* BrandeisClassSearchIPHONETests.xctest */,
 				1CEB42F51E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests.xctest */,
+				1C183C411E3A678E0077E507 /* ClassScheduleWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,6 +287,7 @@
 				1CEB42E01E0999DF00B36E9C /* Assets.xcassets */,
 				1CEB42E21E0999DF00B36E9C /* LaunchScreen.storyboard */,
 				1CEB42E51E0999DF00B36E9C /* Info.plist */,
+				1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */,
 				1CD5CE271E13F7DD0014D330 /* Data.txt */,
 			);
 			path = BrandeisClassSearchIPHONE;
@@ -277,6 +330,7 @@
 				17078B5EEA301E6383B64169 /* Pods_BrandeisClassSearchIPHONE.framework */,
 				49F64FDE5412E370772261AA /* Pods_BrandeisClassSearchIPHONETests.framework */,
 				EEA362DE75372F026D432E87 /* Pods_BrandeisClassSearchIPHONEUITests.framework */,
+				1C183C421E3A678E0077E507 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,6 +338,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1C183C401E3A678E0077E507 /* ClassScheduleWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C183C501E3A678E0077E507 /* Build configuration list for PBXNativeTarget "ClassScheduleWidget" */;
+			buildPhases = (
+				1C183C3D1E3A678E0077E507 /* Sources */,
+				1C183C3E1E3A678E0077E507 /* Frameworks */,
+				1C183C3F1E3A678E0077E507 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClassScheduleWidget;
+			productName = ClassScheduleWidget;
+			productReference = 1C183C411E3A678E0077E507 /* ClassScheduleWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1CEB42D51E0999DF00B36E9C /* BrandeisClassSearchIPHONE */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CEB42FE1E0999DF00B36E9C /* Build configuration list for PBXNativeTarget "BrandeisClassSearchIPHONE" */;
@@ -294,10 +365,12 @@
 				1CEB42D41E0999DF00B36E9C /* Resources */,
 				97F97AC3C36CAA0F259C706F /* [CP] Embed Pods Frameworks */,
 				A6667D2526F3CCB8E38DE997 /* [CP] Copy Pods Resources */,
+				1C183C511E3A678E0077E507 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1C183C4C1E3A678E0077E507 /* PBXTargetDependency */,
 			);
 			name = BrandeisClassSearchIPHONE;
 			productName = BrandeisClassSearchIPHONE;
@@ -356,6 +429,10 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Yuanze Hu";
 				TargetAttributes = {
+					1C183C401E3A678E0077E507 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					1CEB42D51E0999DF00B36E9C = {
 						CreatedOnToolsVersion = 8.2;
 						LastSwiftMigration = 0820;
@@ -389,11 +466,20 @@
 				1CEB42D51E0999DF00B36E9C /* BrandeisClassSearchIPHONE */,
 				1CEB42E91E0999DF00B36E9C /* BrandeisClassSearchIPHONETests */,
 				1CEB42F41E0999DF00B36E9C /* BrandeisClassSearchIPHONEUITests */,
+				1C183C401E3A678E0077E507 /* ClassScheduleWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1C183C3F1E3A678E0077E507 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C183C491E3A678E0077E507 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1CEB42D41E0999DF00B36E9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,6 +646,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C183C3D1E3A678E0077E507 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C183C461E3A678E0077E507 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1CEB42D21E0999DF00B36E9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,6 +679,7 @@
 				1C1566FD1E26543C009F98AF /* CourseDataItemStore.swift in Sources */,
 				1C2AB5041E23975300858533 /* CourseDataItem.swift in Sources */,
 				1CD5CE2C1E1402F40014D330 /* StreamReader.swift in Sources */,
+				1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */,
 				1C15670B1E26AFAC009F98AF /* TableCellBooks.swift in Sources */,
 				1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */,
 				1C36AF2D1E31302900C88DEB /* Book.swift in Sources */,
@@ -612,6 +707,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1C183C4C1E3A678E0077E507 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C183C401E3A678E0077E507 /* ClassScheduleWidget */;
+			targetProxy = 1C183C4B1E3A678E0077E507 /* PBXContainerItemProxy */;
+		};
 		1CEB42EC1E0999DF00B36E9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1CEB42D51E0999DF00B36E9C /* BrandeisClassSearchIPHONE */;
@@ -625,6 +725,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1C183C471E3A678E0077E507 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C183C481E3A678E0077E507 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		1CEB42DD1E0999DF00B36E9C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -644,6 +752,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1C183C4E1E3A678E0077E507 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassScheduleWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE.ClassScheduleWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1C183C4F1E3A678E0077E507 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassScheduleWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE.ClassScheduleWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		1CEB42FC1E0999DF00B36E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -739,6 +871,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F8B39A1D3BA249EEE79DC8D /* Pods-BrandeisClassSearchIPHONE.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
@@ -757,6 +890,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E14C883776C48C014EF6CB34 /* Pods-BrandeisClassSearchIPHONE.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
@@ -831,6 +965,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C183C501E3A678E0077E507 /* Build configuration list for PBXNativeTarget "ClassScheduleWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C183C4E1E3A678E0077E507 /* Debug */,
+				1C183C4F1E3A678E0077E507 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1CEB42D11E0999DF00B36E9C /* Build configuration list for PBXProject "BrandeisClassSearchIPHONE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -868,6 +1011,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */,
+			);
+			currentVersion = 1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */;
+			path = UserSavedClasses.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1CEB42CE1E0999DF00B36E9C /* Project object */;
 }

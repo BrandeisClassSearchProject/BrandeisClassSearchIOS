@@ -9,14 +9,16 @@
 import UIKit
 import MMDrawerController
 import NVActivityIndicatorView
+import KCFloatingActionButton
 
 class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+    //MARK: - variables
     var courseDataItemStore: CourseDataItemStore?
+    
     var courseDictionary: CourseDictionary?
-    //var cells: [UITableViewCell]?
     //the sourse of dictionary for search class
     
-    var isReload = false
+    var isReload = false //set to true during viewDidLoad, and set false when reload starts
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,11 +26,14 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     @IBOutlet weak var testingLongText: UITextView!
     
+    let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate //instance of AppDelegate for reusing
+
+    
+    //MARK: - view Did Load
     override func viewDidLoad()
     {
         //
         super.viewDidLoad()
-        let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         courseDictionary = appDel.courseDictionary!
         
         if (courseDictionary?.history!.count)! > 0 {
@@ -49,19 +54,65 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         }
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 63.0/255.0, green: 81.0/255.0, blue: 181.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationController?.navigationBar.barTintColor=UIColor(red: 63.0/255.0, green: 81.0/255.0, blue: 181.0/255.0, alpha: 1.0)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-       
         isReload=true
+       
+        //MARK: fab button setting
+        let fab = KCFloatingActionButton()
+        fab.buttonColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 102.0/255.0, alpha: 1.0)
+        fab.plusColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        fab.addItem("Save", icon: UIImage( named: "save_icon")!, handler: { item in
+            let alert = UIAlertController(title: "Save class", message: "Do you want to save this class and put it into your schedule?", preferredStyle: .alert)
+            
+            let yesOption = UIAlertAction(title: "Yes", style: .default, handler: self.saveHandler)
+            
+            let noOption = UIAlertAction(title: "Not yet", style: .default, handler: self.notSaveHandler)
+            
+            alert.addAction(yesOption)//save the course here
+            
+            
+            alert.addAction(noOption)//save the course here //handle the handler
+            self.present(alert, animated: true, completion: nil)
+            fab.close()
+        })
+        self.view.addSubview(fab)
+        
         
     }
+    
+    
+    //MARK: - fab button handling
+    func saveHandler(_: UIAlertAction!) {
+        if courseDataItemStore != nil{
+            if courseDataItemStore?.courseDataItemStore.count != 0 {
+                appDel.setSavedCourse(
+                    courseID: (courseDictionary?.latestHistory())!, courseName: (courseDataItemStore?.getResult(index: 0)[0])!, courseYear: (courseDataItemStore?.getResult(index: 1)[0])!, courseTime: (courseDataItemStore?.getResult(index: 2)[0])!)
+            }else{
+                print("the courseDataItemStore is empty, nothing can be saved")
+            }
+        }else{
+            print("the courseDataItemStore is nil, nothing can be saved")
+        }
+    }
+    
+    func notSaveHandler (_: UIAlertAction!){
+        for s in appDel.getAllSavedClass(){
+            print("   \(s)")
+        }
+    }
+    
+    
+    
     
   
     //this function starts a new thread that checking if there are new cells being done
     //update the done cells, cells have benn updated are ignored next time 
     //the first three cells does not require internet, they are not updated anyway
+    //MARK: - Monitoring Thread
     private func startMonitoring(staticCells : Int, timeLimitInSeconds: Double){
         self.isReload=false
         let queue = DispatchQueue(label: "Monitor")
@@ -102,6 +153,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     }
     
+    //MARK: - TableView functions
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
@@ -141,7 +193,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     //return and set views according to different items
     //need reforming in the future 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //MARK: Cell For Row At
         if isReload {
             if indexPath.row == (courseDataItemStore?.courseDataItemStore.count)!-1 {
                 startMonitoring(staticCells: 3, timeLimitInSeconds: 10)
@@ -292,12 +346,8 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         }
         
     }
-
     
-    
-    
-    
-    
+    //MARK: - Open Menus
 
     @IBAction func LeftSideMenuOpen(_ sender: Any) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
