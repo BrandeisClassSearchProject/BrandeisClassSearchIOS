@@ -196,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if results.count > 0 {
                 for result in results as! [NSManagedObject]{
                     var tempString = ""
-                    let attributes = ["courseID","courseName","courseTime"]
+                    let attributes = ["courseID","courseName","courseTime","courseYear"]
                     for attri in attributes{
                         if let classInfo = result.value(forKey: attri) as? String{
                             tempString.append(classInfo+"\n")
@@ -212,6 +212,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             
+        }
+        catch{
+            print("ERROR: Fetching result from core data failed.")
+            return []
+        }
+    }
+    
+    func getAllSavedClassObject() -> [NSManagedObject]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyClasses")
+        request.returnsObjectsAsFaults = false
+        do{
+            let results = try persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
+            return results
         }
         catch{
             print("ERROR: Fetching result from core data failed.")

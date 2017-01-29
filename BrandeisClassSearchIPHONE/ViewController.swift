@@ -164,6 +164,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 if (courseDataItemStore?.getResult(index: indexPath.row).isEmpty)!{
                     return
                 }
+                if (courseDataItemStore?.getResult(index: indexPath.row)[0] == "no textbooks information"){
+                    return
+                }
                 print("Switch to BooksTableView")
                 let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksTableView") as!BooksTableViewController
                 myVC.resultList = courseDataItemStore?.getResult(index: indexPath.row)
