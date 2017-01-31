@@ -48,6 +48,8 @@ class BooksTableViewController: UITableViewController {
         }
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if resultList == nil{
             return UITableViewCell()
@@ -84,6 +86,21 @@ class BooksTableViewController: UITableViewController {
             //print("  For book table cell at index \(indexPath.row), put:\n\(mycell.bookText.text)")
             return mycell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("seleted index \(indexPath.row)")
+        if let ibsn = bookList?[indexPath.row].ISBN{
+            if !ibsn.isEmpty{
+                print("Switch to AmazonPage")
+                let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksAmazonPageController") as!BooksAmazonPageController
+                myVC.IBSN = ibsn
+                navigationController?.pushViewController(myVC, animated: true)
+                return
+            }
+        }
+        
+        
     }
     
     private func makeBookList(stringsOfBooks: [String]) -> [Book] {
