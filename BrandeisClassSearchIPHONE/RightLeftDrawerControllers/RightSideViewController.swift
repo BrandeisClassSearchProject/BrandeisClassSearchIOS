@@ -33,7 +33,7 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("switch to \n\(suggestions[indexPath.row])")
         let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        try appDel.addHistory(newHistory: suggestions[indexPath.row])
+        appDel.addHistory(newHistory: suggestions[indexPath.row])
         doSwitchCenter()
     }
     

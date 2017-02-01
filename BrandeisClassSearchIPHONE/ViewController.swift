@@ -19,12 +19,15 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     //the sourse of dictionary for search class
     
     var isReload = false //set to true during viewDidLoad, and set false when reload starts
+    
+    var isFromMyClasses = false //different actions need to be taken if it is from clicking an 
+                                //existing course in MyClasses
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var centerText: UILabel!
+    
 
-    @IBOutlet weak var testingLongText: UITextView!
+    
     
     let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate //instance of AppDelegate for reusing
 
@@ -36,6 +39,8 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         super.viewDidLoad()
         courseDictionary = appDel.courseDictionary!
         
+        //appDel.isAtViewController = true
+        
         if (courseDictionary?.history!.count)! > 0 {
             let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
             courseDataItemStore = CourseDataItemStore(searchResultArray: ar!)
@@ -44,13 +49,13 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 ss  = ss + s + "\n"
             }
             print(ss)
-            testingLongText.text=ss
+            
         }else{
             var s=""
             for term in (courseDictionary?.terms)!{
                 s = s+term+"\n"
             }
-            testingLongText.text=s
+            
         }
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 63.0/255.0, green: 81.0/255.0, blue: 181.0/255.0, alpha: 1.0)
@@ -60,26 +65,76 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         isReload=true
+        
+        let but = self.navigationController?.navigationBar
+        
+        but?.tintColor = UIColor.white
        
-        //MARK: fab button setting
-        let fab = KCFloatingActionButton()
-        fab.buttonColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 102.0/255.0, alpha: 1.0)
-        fab.plusColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        fab.addItem("Save", icon: UIImage( named: "save_icon")!, handler: { item in
-            let alert = UIAlertController(title: "Save class", message: "Do you want to save this class and put it into your schedule?", preferredStyle: .alert)
+        if isFromMyClasses {
+
             
-            let yesOption = UIAlertAction(title: "Yes", style: .default, handler: self.saveHandler)
-            
-            let noOption = UIAlertAction(title: "Not yet", style: .default, handler: self.notSaveHandler)
-            
-            alert.addAction(yesOption)//save the course here
+
+        }else{
             
             
-            alert.addAction(noOption)//save the course here //handle the handler
-            self.present(alert, animated: true, completion: nil)
-            fab.close()
-        })
-        self.view.addSubview(fab)
+            let rightBut = UIButton(type: .custom)
+            rightBut.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+            rightBut.addTarget(self, action: #selector(ViewController.RightSideMenuOpen), for: .touchUpInside)
+            rightBut.setImage(#imageLiteral(resourceName: "search"), for: .normal)
+            //rightBut.tintColor = UIColor.white
+            self.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: rightBut)], animated: false)
+            
+            
+            self.title = "Brandeis Class Search"
+            
+            let leftBut = UIButton(type: .custom)
+            leftBut.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+            leftBut.addTarget(self, action: #selector(ViewController.LeftSideMenuOpen), for: .touchUpInside)
+            leftBut.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
+            //leftBut.tintColor = UIColor.white
+            self.navigationItem.setLeftBarButtonItems([UIBarButtonItem(customView: leftBut)], animated: false)
+            
+            
+            
+            //MARK: fab button setting
+            let fab = KCFloatingActionButton()
+            fab.buttonColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 102.0/255.0, alpha: 1.0)
+            fab.plusColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            fab.addItem("Save", icon: UIImage( named: "save_icon")!, handler: { item in
+                
+                //            if self.courseDataItemStore == nil {
+                //
+                //                let alert = UIAlertController(title: "nothing there...", message: "Click too-right corner to search for a class first~", preferredStyle: .alert)
+                //                self.present(alert, animated: true, completion: nil)
+                //                fab.close()
+                //
+                //                return
+                //            }
+                
+                
+                
+                let alert = UIAlertController(title: "Save class", message: "Do you want to save this class and put it into your schedule?", preferredStyle: .alert)
+                
+                let yesOption = UIAlertAction(title: "Yes", style: .default, handler: self.saveHandler)
+                
+                let noOption = UIAlertAction(title: "Not yet", style: .default, handler: self.notSaveHandler)
+                
+                alert.addAction(yesOption)//save the course here
+                
+                
+                alert.addAction(noOption)
+                
+                self.present(alert, animated: true, completion: nil)
+                fab.close()
+                
+                
+            })
+            self.view.addSubview(fab)
+            
+            
+        }
+        
+        
         
         
     }
@@ -228,7 +283,11 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             print("setBlockCell : \(mycell.blockLabel.text)")
             var temp = ""
             for i in 1..<result!.count {
-                temp = temp + result![i] + "\n"
+                if i == result!.count-1 {
+                    temp = temp + result![i]
+                }else{
+                    temp = temp + result![i] + "\n"
+                }
             }
             mycell.timeLabel.text = temp
             print("setBlockCell : \(temp)")
@@ -352,7 +411,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     //MARK: - Open Menus
 
-    @IBAction func LeftSideMenuOpen(_ sender: Any) {
+    func LeftSideMenuOpen() {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         
@@ -360,7 +419,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     }//单击左上 打开菜单
  
     
-    @IBAction func RightSideMenuOpen(_ sender: Any) {
+    func RightSideMenuOpen() {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.right, animated: true, completion: nil)
     }

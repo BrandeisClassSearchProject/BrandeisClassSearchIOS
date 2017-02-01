@@ -12,11 +12,11 @@ class MyClassesViewController: UITableViewController {
     
     let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let myCourses = (UIApplication.shared.delegate as! AppDelegate).getAllSavedClassObject()
+    var myCourses = (UIApplication.shared.delegate as! AppDelegate).getAllSavedClassObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 105
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
         
         let button = self.editButtonItem
@@ -70,12 +70,26 @@ class MyClassesViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             print("try to delete")
-            //tableView.deleteRows(at: [indexPath], with: .fade)
+            appDel.deleteCourse(index: indexPath.row)
+            myCourses.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let classid = myCourses[indexPath.row].value(forKey: "courseID") as? String{
+            appDel.addHistory(newHistory: classid)
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "center") as! ViewController
+            myVC.isFromMyClasses = true
+            navigationController?.pushViewController(myVC, animated: true)
+            
+            return
+        }
+        print("switch to ViewController not successful")
+    }
 
     /*
     // Override to support rearranging the table view.

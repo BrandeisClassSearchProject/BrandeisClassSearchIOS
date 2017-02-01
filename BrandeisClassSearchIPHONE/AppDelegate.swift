@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var descCell : TableCellDescription?
     
+    //var isAtViewController = false
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -41,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         theViewController = centerVC
         
         centerVC.navigationController?.navigationBar.tintColor = UIColor(red: 63.0/255.0, green: 81.0/255.0, blue: 181.0/255.0, alpha: 1.0)
+        
+        
         
         centerVC.courseDictionary = courseDictionary//set the dictionary to ui
         
@@ -68,9 +72,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UINavigationBar.appearance().barTintColor =
         
         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+        
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
+        
+        centerVC.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+//        centerVC.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Title 1", size: 20)!]
         return true
     }
     
@@ -181,6 +189,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newSaved.setValue(courseTime, forKey: "courseTime" )
         newSaved.setValue(courseYear, forKey: "courseYear")
         self.saveContext()
+        
+    }
+    
+    func deleteCourse(index: Int){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyClasses")
+//        request.predicate = NSPredicate(format: "courseID == %@", courseId)
+        do{
+            let result = try persistentContainer.viewContext.fetch(request)
+            persistentContainer.viewContext.delete(result[index] as! NSManagedObject)
+            print("Deleted")
+            self.saveContext()
+        }catch{
+            print("Request Failed, delete failed")
+        }
         
     }
     

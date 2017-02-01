@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,18 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG4" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-ag-ICV">
-                                <rect key="frame" x="16" y="0.0" width="343" height="700"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="700" id="D0U-9U-tyH"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG4" translatesAutoresizingMaskIntoConstraints="NO" id="duo-YO-9g6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="C3e-ag-ICV" secondAttribute="trailing" id="45H-pp-znQ"/>
-                            <constraint firstItem="C3e-ag-ICV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="GdB-X8-Sl7"/>
-                            <constraint firstItem="C3e-ag-ICV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="Luq-hl-xSy"/>
+                            <constraint firstItem="duo-YO-9g6" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="54h-AN-RY5"/>
+                            <constraint firstItem="duo-YO-9g6" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5a7-dc-N7i"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="duo-YO-9g6" secondAttribute="bottom" id="S1I-vy-tA1"/>
+                            <constraint firstAttribute="trailing" secondItem="duo-YO-9g6" secondAttribute="trailing" id="eAB-9t-5Nd"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
