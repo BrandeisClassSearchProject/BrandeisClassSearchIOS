@@ -10,6 +10,95 @@ import UIKit
 
 class MyClassesViewController: UITableViewController {
     
+    class CoursesInTerms{
+        
+        var courseInTerms : [CoursesInTerm]
+        
+        init(CourseInTerms: [CoursesInTerm]) {
+            courseInTerms = CourseInTerms
+        }
+        
+        func printCoursesInTerms(){
+            print("Print all coursesInTerms")
+            for ct in courseInTerms{
+                print("---")
+                print("Term:\(ct.term)")
+                print("Num:\(ct.num)")
+                for c in ct.courses{
+                    print(c.courseID)
+                    print(c.courseName)
+                    print(c.Time)
+                }
+                print("---")
+            }
+        }
+        
+        func count() -> Int{
+            var count = 0
+            for ct in courseInTerms{
+                count += ct.num
+            }
+            return count
+        }
+        
+        func get(index : Int) -> Course{
+            var i = index
+            for c in courseInTerms{
+                if i < c.num {
+                    if i==0{
+                        return Course(courseID: "header",courseName: "header",Time: "20"+c.term)
+                    }else{
+                        return c.courses[i-1]
+                    }
+                }else{
+                    i = i - c.num
+                }
+            }
+            return Course(courseID: "",courseName: "",Time: "")
+        }
+        
+        func canEdit(index : Int) -> Bool {
+            var i = index
+            for c in courseInTerms{
+                if i < c.num {
+                    if i==0{
+                        return false
+                    }else{
+                        return true
+                    }
+                }else{
+                    i = i - c.num
+                }
+            }
+            return false
+        }
+        
+        func remove(index : Int) {
+            var i = index
+            var j = 0
+            for c in courseInTerms{
+                if i < c.num {
+                    if i==0{
+                        print("cannot remove header")
+                        return
+                    }else{
+                        courseInTerms[j].num = courseInTerms[j].num - 1
+                        courseInTerms[j].courses.remove(at: i-1)
+                        print("remove course at \(j) at \(i-1)")
+                        return
+                    }
+                }else{
+                    i = i - c.num
+                }
+                j = j+1
+            }
+        }
+        
+        
+    }
+    
+    var cInTerms = CoursesInTerms(CourseInTerms: (UIApplication.shared.delegate as! AppDelegate).getAllSavedClassInTerms() )
+    
     let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var myCourses = (UIApplication.shared.delegate as! AppDelegate).getAllSavedClassObject()
@@ -32,27 +121,49 @@ class MyClassesViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myCourses.count
+        return cInTerms.count()
+        //return myCourses.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyClassesCell", for: indexPath) as! MyClassesCell
-        //let attributes = ["courseID","courseName","courseTime","courseYear"]
-        if let classid = myCourses[indexPath.row].value(forKey: "courseID") as? String{
-            cell.courseID.text = classid
+        //with header
+        let course = cInTerms.get(index: indexPath.row)
+        if course.courseID == "" {
+            return UITableViewCell()
         }
-        if let coursename = myCourses[indexPath.row].value(forKey: "courseName") as? String{
-            cell.courseName.text = coursename
+        if course.courseID == "header" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyClassesCellHeader", for: indexPath) as! MyClassesCellHeader
+            cell.year.text = course.Time
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyClassesCell", for: indexPath) as! MyClassesCell
+            //let attributes = ["courseID","courseName","courseTime","courseYear"]
+            cell.courseID.text = course.courseID
+            cell.courseName.text = course.courseName
+            cell.courseTime.text = course.Time
+            return cell
         }
-        if let courseyear = myCourses[indexPath.row].value(forKey: "courseYear") as? String{
-            cell.courseYear.text = courseyear
-        }
-        if let coursetime = myCourses[indexPath.row].value(forKey: "courseTime") as? String{
-            cell.courseTime.text = coursetime
-        }
+        //with header
         
-        return cell
+        
+//        //without header
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MyClassesCell", for: indexPath) as! MyClassesCell
+//        //let attributes = ["courseID","courseName","courseTime","courseYear"]
+//        if let classid = myCourses[indexPath.row].value(forKey: "courseID") as? String{
+//            cell.courseID.text = classid
+//        }
+//        if let coursename = myCourses[indexPath.row].value(forKey: "courseName") as? String{
+//            cell.courseName.text = coursename
+//        }
+//        if let courseyear = myCourses[indexPath.row].value(forKey: "courseYear") as? String{
+//            cell.courseYear.text = courseyear
+//        }
+//        if let coursetime = myCourses[indexPath.row].value(forKey: "courseTime") as? String{
+//            cell.courseTime.text = coursetime
+//        }
+//        return cell
+//        //without header
     }
 
 
@@ -60,7 +171,8 @@ class MyClassesViewController: UITableViewController {
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return cInTerms.canEdit(index: indexPath.row)
+        //return true
     }
  
 
@@ -70,9 +182,19 @@ class MyClassesViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             print("try to delete")
-            appDel.deleteCourse(index: indexPath.row)
-            myCourses.remove(at: indexPath.row)
+//            //without header
+//            appDel.deleteCourse(index: indexPath.row)
+//            myCourses.remove(at: indexPath.row)
+//            //without header
+            
+            //with header
+            appDel.deleteCourse(courseID: cInTerms.get(index: indexPath.row).courseID)
+            cInTerms.remove(index: indexPath.row)
+            //with header
+            
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
+
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -80,15 +202,31 @@ class MyClassesViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let classid = myCourses[indexPath.row].value(forKey: "courseID") as? String{
-            appDel.addHistory(newHistory: classid)
-            let myVC = storyboard?.instantiateViewController(withIdentifier: "center") as! ViewController
-            myVC.isFromMyClasses = true
-            navigationController?.pushViewController(myVC, animated: true)
-            
+        //with header
+        let classid = cInTerms.get(index: indexPath.row).courseID
+        if classid == "header" {
             return
         }
-        print("switch to ViewController not successful")
+        
+        
+        appDel.addHistory(newHistory: classid)
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "center") as! ViewController
+        myVC.isFromMyClasses = true
+        navigationController?.pushViewController(myVC, animated: true)
+        
+        return
+        //with header
+    
+        
+//        if let classid = myCourses[indexPath.row].value(forKey: "courseID") as? String{
+//            appDel.addHistory(newHistory: classid)
+//            let myVC = storyboard?.instantiateViewController(withIdentifier: "center") as! ViewController
+//            myVC.isFromMyClasses = true
+//            navigationController?.pushViewController(myVC, animated: true)
+//            
+//            return
+//        }
+//        print("switch to ViewController not successful")
     }
 
     /*

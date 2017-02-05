@@ -78,9 +78,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         
         centerVC.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
+        
+        
+        
+        
+        
 //        centerVC.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Title 1", size: 20)!]
         return true
     }
+    
+//    private func initCoreDataId(){
+//        
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ID")
+//        do{
+//            if let result = try persistentContainer.viewContext.fetch(request)[0] as! NSManagedObject{
+//                
+//            }
+//            
+//        }catch{
+//            print("Request Failed, delete failed")
+//            return
+//        }
+//        
+//        let newSaved = NSEntityDescription.insertNewObject(forEntityName: "ID", into: persistentContainer.viewContext)
+//        newSaved.setValue(0, forKey: "id")
+//        saveContext()
+//    }
     
  
     public func setDescCell(descCell: TableCellDescription){
@@ -138,7 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    // MARK: - Core Data
+    // MARK: - Core Datan Managing Methods
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -149,17 +173,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "UserSavedClasses")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 print("ERROR: Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -167,8 +180,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     // MARK: Core Data Saving support
-    
-    
     
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -183,15 +194,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setSavedCourse(courseID: String, courseName: String, courseYear: String, courseTime: String){
+//        var id: Int = -1
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ID")
+//        do{
+//            let ID = try persistentContainer.viewContext.fetch(request)
+//            newSaved.
+//            
+//        }catch{
+//            print("Request Failed, delete failed")
+//            return
+//        }
         let newSaved = NSEntityDescription.insertNewObject(forEntityName: "MyClasses", into: persistentContainer.viewContext)
         newSaved.setValue(courseID, forKey: "courseID" )
         newSaved.setValue(courseName, forKey: "courseName" )
         newSaved.setValue(courseTime, forKey: "courseTime" )
         newSaved.setValue(courseYear, forKey: "courseYear")
         self.saveContext()
-        
     }
     
+    //delete based on the given index
+    //will be depreciated
     func deleteCourse(index: Int){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyClasses")
 //        request.predicate = NSPredicate(format: "courseID == %@", courseId)
@@ -203,8 +225,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }catch{
             print("Request Failed, delete failed")
         }
-        
     }
+    
+    //delete based on the given ID
+    func deleteCourse(courseID: String){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyClasses")
+        request.predicate = NSPredicate(format: "courseID == %@", courseID)
+        do{
+            let result = try persistentContainer.viewContext.fetch(request)
+            if result.count == 0 {
+                print("The delete courseID does not exist, the courseID input is: \(courseID)")
+                return
+            }
+            var i = 0
+            for r in result as! [NSManagedObject] {
+                persistentContainer.viewContext.delete(r)
+                i += 1
+            }
+            print("deleted \(i) item(s) with courseID \(courseID)")
+            self.saveContext()
+        }catch{
+            print("Request Failed, delete failed")
+        }
+    }
+    
+    
     
     //return the array with of each class and with all attributes in seperated lines
     func getAllSavedClass() -> [String]{
@@ -253,7 +298,100 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return []
         }
     }
+    
+    func getAllSavedClassInTerms() -> [CoursesInTerm] {
+        var coursesInTerms: [CoursesInTerm] = []
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyClasses")
+        request.returnsObjectsAsFaults = false
+        do{
+            var termsToCoursesInTermDict = [String:CoursesInTerm]()
+            
+            let results = try persistentContainer.viewContext.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let term = result.value(forKey: "courseYear") as? String{
+                        var cInT = termsToCoursesInTermDict[term]
+                        if cInT == nil {
+                            cInT = CoursesInTerm(num: 1, term: term, courses: [])
+                        }
+                        
+                        let newCourse = Course(
+                            courseID: result.value(forKey: "courseID") as? String ?? "",
+                            courseName: result.value(forKey: "courseName") as? String ?? "",
+                            Time: result.value(forKey: "courseTime") as? String ?? "")
+                        print("newCourse.courseID \(newCourse.courseID)")
+                        cInT?.courses.append(newCourse)
+                        cInT?.num = (cInT?.num)! + 1
+                        print("num \(cInT?.num)")
+                        termsToCoursesInTermDict[term] = cInT
+                        // let attributes = ["courseID","courseName","courseTime","courseYear"]
 
+                    }else{
+                        print("ERROR: the class does not have courseYear which is super weird, skip this course")
+                    }
+                }
+                
+                
+                
+                var keysTerm = [String](termsToCoursesInTermDict.keys)
+                let n = keysTerm.count
+                if n == 0{
+                    return coursesInTerms
+                }else if n > 1{
+                    for i in 0...n-2 {
+                        var max = i
+                        for j in i+1...n-1{
+                            if(termToInt(s: keysTerm[j]) > termToInt(s: keysTerm[max])){
+                                max = j
+                            }
+                        }
+                        
+                        if max != i{
+                            let temp = keysTerm[max]
+                            keysTerm[max] = keysTerm[i]
+                            keysTerm[i] = temp
+                        }
+                    }
+                }
+                
+                
+                for t in keysTerm {
+                    coursesInTerms.append(termsToCoursesInTermDict[t]!)
+                }
+                
+                return coursesInTerms
+            }else{
+                print("getAllSavedClass: the MyClass in core data has 0 elements")
+                return []
+            }
+            
+        }
+        catch{
+            print("ERROR: Fetching result from core data failed.")
+            return []
+        }
+    }
+
+    private func termToInt(s: String) -> Int{
+        let a = s.components(separatedBy: " ")
+        return ((Int(a[0]) ?? 0) * 10 + termToString(term: a[a.count-1]))
+    }
+    
+    private func termToString(term: String) -> Int{
+        switch term {
+        case "Spring":
+            return 1
+        case "SUMMER":
+            return 2
+        case "FALL":
+            return 3
+        default:
+            return 0
+        }
+        
+    }
+    
 
 }
 

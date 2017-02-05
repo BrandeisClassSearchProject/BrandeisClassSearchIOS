@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ID" representedClassName="ID" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="MyClasses" representedClassName="MyClasses" syncable="YES" codeGenerationType="class">
         <attribute name="courseID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,7 +17,8 @@
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MyClasses" positionX="-263" positionY="12" width="128" height="131"/>
+        <element name="MyClasses" positionX="-263" positionY="12" width="128" height="134"/>
         <element name="MySearchHistory" positionX="-54" positionY="0" width="128" height="73"/>
+        <element name="ID" positionX="-144" positionY="72" width="128" height="60"/>
     </elements>
 </model>

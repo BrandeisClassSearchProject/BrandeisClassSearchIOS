@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var leftBut: UIButton?
 
     
     
@@ -87,12 +87,12 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             
             self.title = "Brandeis Class Search"
             
-            let leftBut = UIButton(type: .custom)
-            leftBut.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-            leftBut.addTarget(self, action: #selector(ViewController.LeftSideMenuOpen), for: .touchUpInside)
-            leftBut.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
+            self.leftBut = UIButton(type: .custom)
+            self.leftBut?.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+            self.leftBut?.addTarget(self, action: #selector(ViewController.LeftSideMenuOpen), for: .touchUpInside)
+            self.leftBut?.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
             //leftBut.tintColor = UIColor.white
-            self.navigationItem.setLeftBarButtonItems([UIBarButtonItem(customView: leftBut)], animated: false)
+            self.navigationItem.setLeftBarButtonItems([UIBarButtonItem(customView: leftBut!)], animated: false)
             
             
             
@@ -412,6 +412,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     //MARK: - Open Menus
 
     func LeftSideMenuOpen() {
+        
+        
+        
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         
