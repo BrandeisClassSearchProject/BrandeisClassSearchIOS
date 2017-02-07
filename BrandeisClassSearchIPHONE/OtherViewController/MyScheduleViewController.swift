@@ -8,12 +8,26 @@
 
 import UIKit
 
+
 class MyScheduleViewController: UIViewController {
 
+
+    
+    @IBOutlet var term: UILabel!
+    
+    var courses: CoursesInTerm?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if courses != nil{
+            if courses?.num != 0 {
+                term.text = courses?.term
+                
+                
+               
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

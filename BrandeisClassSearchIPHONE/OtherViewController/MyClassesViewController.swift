@@ -57,6 +57,23 @@ class MyClassesViewController: UITableViewController {
             return Course(courseID: "",courseName: "",Time: "")
         }
         
+        func getTerm(index:Int) ->CoursesInTerm{
+            var i = index
+            var j = 0
+            for c in courseInTerms{
+                if i < c.num{
+                    return courseInTerms[j]
+                }else{
+                    i = i - c.num
+                    j = j + 1
+                }
+            }
+            print("ERROR: Can't find the term")
+            return CoursesInTerm(num: 0,term: "",courses: [])
+        }
+        
+        
+        
         func canEdit(index : Int) -> Bool {
             var i = index
             for c in courseInTerms{
@@ -205,6 +222,13 @@ class MyClassesViewController: UITableViewController {
         //with header
         let classid = cInTerms.get(index: indexPath.row).courseID
         if classid == "header" {
+            let myVC = storyboard?.instantiateViewController(withIdentifier: "MySchedule") as! MyScheduleViewController
+            myVC.courses = cInTerms.getTerm(index: indexPath.row)
+            navigationController?.pushViewController(myVC, animated: true)
+            
+            
+            
+            
             return
         }
         
