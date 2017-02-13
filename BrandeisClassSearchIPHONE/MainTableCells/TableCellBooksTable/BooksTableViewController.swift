@@ -89,13 +89,15 @@ class BooksTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("seleted index \(indexPath.row)")
+        //print("seleted index \(indexPath.row)")
         if let ibsn = bookList?[indexPath.row].ISBN{
             if !ibsn.isEmpty{
                 print("Switch to AmazonPage")
-                let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksAmazonPageController") as!BooksAmazonPageController
-                myVC.IBSN = ibsn
-                navigationController?.pushViewController(myVC, animated: true)
+                UIApplication.shared.open(URL(string: "https://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&unfiltered=1&field-keywords=&field-author=&field-title=&field-isbn=\(ibsn)&field-publisher=&node=&field-p_n_condition-type=&p_n_feature_browse-bin=&field-age_range=&field-language=&field-dateop=During&field-datemod=&field-dateyear=&sort=relevanceexprank&Adv-Srch-Books-Submit.x=0&Adv-Srch-Books-Submit.y=0")!,options: [:], completionHandler: nil)
+                
+                //let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksAmazonPageController") as!BooksAmazonPageController
+                //myVC.IBSN = ibsn
+                //navigationController?.pushViewController(myVC, animated: true)
                 return
             }
         }

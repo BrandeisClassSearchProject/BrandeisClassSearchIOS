@@ -98,9 +98,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             
             //MARK: fab button setting
             let fab = KCFloatingActionButton()
-            fab.buttonColor = UIColor(red: 209.0/255.0, green: 47.0/255.0, blue: 118.0/255.0, alpha: 1.0)
+            fab.buttonColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 128.0/255.0, alpha: 0.5)
             fab.plusColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-            fab.addItem("Save", icon: UIImage( named: "save_icon")!, handler: { item in
+            fab.addItem("SAVE", icon: UIImage( named: "save_icon")!, handler: { item in
                 
                 //            if self.courseDataItemStore == nil {
                 //
