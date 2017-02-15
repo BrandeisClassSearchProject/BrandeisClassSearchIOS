@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             
             //MARK: fab button setting
             let fab = KCFloatingActionButton()
-            fab.buttonColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 128.0/255.0, alpha: 0.5)
+            fab.buttonColor = UIColor(red: 255.0/255.0, green: 64.0/255.0, blue: 129.0/255.0, alpha: 1.0)
             fab.plusColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             fab.addItem("SAVE", icon: UIImage( named: "save_icon")!, handler: { item in
                 
@@ -226,6 +226,21 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 let myVC = storyboard?.instantiateViewController(withIdentifier: "BooksTableView") as!BooksTableViewController
                 myVC.resultList = courseDataItemStore?.getResult(index: indexPath.row)
                 navigationController?.pushViewController(myVC, animated: true)
+                break
+            case .BLOCK:
+                if let cdis = courseDataItemStore{
+                    if (cdis.getResult(index: indexPath.row).isEmpty){
+                        return
+                    }
+                    
+                    let myVC = storyboard?.instantiateViewController(withIdentifier: "MySchedule") as! MyScheduleViewController
+                    
+                    if let a = courseDictionary?.latestHistory() {
+                        myVC.courses = CoursesInTerm(num: 1, term: cdis.getResult(index: 1)[0], courses: [Course(courseID: a,courseName: cdis.getResult(index: 0)[0],Time: cdis.getResult(index: indexPath.row)[0])])
+                        navigationController?.pushViewController(myVC, animated: true)
+                    }
+                }
+                
                 break
             default:
                 print(" Not implemented yet......")

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MyScheduleViewController: UIViewController {
+class MyScheduleViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet var column0: UIStackView!
 
@@ -25,10 +25,14 @@ class MyScheduleViewController: UIViewController {
     
     @IBOutlet var term: UILabel!
     
+    @IBOutlet var legendTable: UITableView!
+    
     var courses: CoursesInTerm?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        legendTable.rowHeight = UITableViewAutomaticDimension
+        legendTable.estimatedRowHeight = 30
         if courses != nil{
             if courses?.num != 0 {
                 if let t = courses?.term{
@@ -39,7 +43,7 @@ class MyScheduleViewController: UIViewController {
 //                v?.backgroundColor = UIColor.brown
                 
                 var i = 0
-                for c in (courses?.courses)!{
+                for c in (courses?.courses)!{//for each course, draw schedule with color from getColor call
                     paint(time: c.Time, color: Colors.getColor(index: i))
                     i = i + 1
                 }
@@ -53,6 +57,24 @@ class MyScheduleViewController: UIViewController {
                 
                 
             }
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let mycell = tableView.dequeueReusableCell(withIdentifier: "legendCell", for: indexPath) as! MyScheduleTableViewCell
+        if let cs = courses {
+            mycell.classLabel.text = cs.courses[indexPath.row].courseID + " | " + cs.courses[indexPath.row].courseName
+            mycell.colorView.backgroundColor = Colors.getColor(index: indexPath.row)
+        }
+        return mycell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let cs = courses {
+            return cs.courses.count
+        }else {
+            return 0
         }
         
     }
