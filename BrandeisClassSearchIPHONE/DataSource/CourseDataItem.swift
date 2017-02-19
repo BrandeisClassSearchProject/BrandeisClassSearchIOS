@@ -48,8 +48,10 @@ class CourseDataItem {
     var rawInput: String = ""
     var resultList = [String]() //the complete info of an item
     lazy var resultList2 = [String]() //essentials thats needed for the table cell
-    lazy var pictureList = [Data]()
+    lazy var pictureList = [Data]() //an array of data objects which will contains pictures
     var isDone = false
+    
+    
     
     //no internet connection during init step, nothing is done
     //resultlList is not empty only if execute() is called
