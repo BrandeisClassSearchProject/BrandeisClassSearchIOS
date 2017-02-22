@@ -51,7 +51,7 @@ class CourseDataItem {
     lazy var pictureList = [Data]() //an array of data objects which will contains pictures
     var isDone = false
     
-    
+    var teacher:Teacher?
     
     //no internet connection during init step, nothing is done
     //resultlList is not empty only if execute() is called
@@ -233,8 +233,8 @@ class CourseDataItem {
             }
             
             
-            
-            
+            teacher = Teacher(htmlString: htmlString)
+            teacher?.introduce()
             return results
         }
         print("parseWithKannaTeacher Failed  htmlString: \(htmlString)")
