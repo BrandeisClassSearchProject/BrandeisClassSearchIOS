@@ -11,13 +11,13 @@ import UIKit
 class TeacherDetailController: UITableViewController {
     
     var teacher: Teacher?
-    var picture: Data?
     var rating: Double?
     private var numberOfRows:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
         // Do any additional setup after loading the view.
     }
 
@@ -40,10 +40,10 @@ class TeacherDetailController: UITableViewController {
         switch indexPath.row {
         case 0:
             let mycell = tableView.dequeueReusableCell(withIdentifier: "TeacherDetailCellPicture", for: indexPath) as! TeacherDetailCellPicture
-            if let p = picture{
-                mycell.teacherPic.image = UIImage(data:p)
+            if let p = teacher?.pic{
+                mycell.picture.image = UIImage(data:p)
             }else{
-                mycell.teacherPic.image = #imageLiteral(resourceName: "unknown_person")
+                mycell.picture.image = #imageLiteral(resourceName: "unknown_person")
             }
             
             mycell.email.text = teacher?.email ?? ""
@@ -59,7 +59,7 @@ class TeacherDetailController: UITableViewController {
             mycell.title.text = teacher?.title ?? ""
             return mycell
         case numberOfRows-1 :
-            let mycell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as! TeacherDetailCellRating
+            let mycell = tableView.dequeueReusableCell(withIdentifier: "TeacherDetailCellRating", for: indexPath) as! TeacherDetailCellRating
             if let r = rating{
                 mycell.makeStars(rating:r)
             }else{

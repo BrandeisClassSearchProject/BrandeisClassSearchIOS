@@ -234,7 +234,7 @@ class CourseDataItem {
             
             
             teacher = Teacher(htmlString: htmlString)
-            teacher?.introduce()
+            //teacher?.introduce()
             return results
         }
         print("parseWithKannaTeacher Failed  htmlString: \(htmlString)")

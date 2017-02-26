@@ -242,6 +242,15 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 }
                 
                 break
+            case .TEACHER:
+                if let teacher = courseDataItemStore?.courseDataItemStore[indexPath.row].teacher{
+                    let myVC = storyboard?.instantiateViewController(withIdentifier: "TeacherDetailController") as! TeacherDetailController
+                    myVC.teacher = teacher
+                    navigationController?.pushViewController(myVC, animated: true)
+                }else{
+                    print("ERROR")
+                }
+                break
             default:
                 print(" Not implemented yet......")
             }

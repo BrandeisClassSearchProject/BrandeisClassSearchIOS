@@ -11,7 +11,8 @@ import UIKit
 
 class TeacherDetailCellPicture: UITableViewCell {
     
-    @IBOutlet var teacherPic: UIImageView!
+    @IBOutlet var picture: UIImageView!
+    
     
     @IBOutlet var email: UITextView!
     

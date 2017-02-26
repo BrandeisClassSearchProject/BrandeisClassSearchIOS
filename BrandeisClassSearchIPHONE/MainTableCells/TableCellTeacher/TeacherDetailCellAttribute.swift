@@ -13,7 +13,8 @@ class TeacherDetailCellAttribute: UITableViewCell {
     @IBOutlet var title: UILabel!
 
     
-    @IBOutlet var content: UILabel!
+    @IBOutlet var content: UITextView!
+    
     
     
 
