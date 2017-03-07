@@ -37,49 +37,69 @@ class Teacher {
             let teacherTitle =  doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='left']//div[@id='title']")
             
             //see if the teacher has a url for his/her pic
-            if let url = temp_pic[0].text {
-                print("loading teacher pic")
-                do{
-                    pic = try Data(contentsOf: URL(string : url)!)
-                } catch {
-                    pic = Data() //if for some reason the image cannot be loaded, then set it to empty
-                    print("loading teacher pic failed")
+            if temp_pic.count > 0 {
+                if let url = temp_pic[0].text {
+                    print("loading teacher pic")
+                    do{
+                        pic = try Data(contentsOf: URL(string : url)!)
+                    } catch {
+                        pic = Data() //if for some reason the image cannot be loaded, then set it to empty
+                        print("loading teacher pic failed")
+                    }
+                }else{
+                    pic = Data()
                 }
             }else{
                 pic = Data()
             }
             
-            if let a = teacherTitle[0].text {
-                title = a.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            if teacherTitle.count > 0{
+                if let a = teacherTitle[0].text {
+                    title = a.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                }else{
+                    title = ""
+                }
             }else{
                 title = ""
             }
             
-            if let n = temp_name[0].text{
-                name = n.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            if temp_name.count > 0 {
+                if let n = temp_name[0].text{
+                    name = n.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                }else{
+                    name = ""
+                }
             }else{
                 name = ""
             }
+            
             
 //            if let e = temp_contact_email[0].text{
 //                email = e.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 //            }else{
 //                email = ""
 //            }
-            
-            if let text = temp_contact_telandloc[0].text{
-                let contactInformation:[String] = text.clearWhiteSpace()
-                if contactInformation.count == 3{
-                    email = contactInformation[0]
-                    tel = contactInformation[1]
-                    office = contactInformation[2]
-                    print("office: \(office)")
-                }else{
-                    email = ""
-                    tel = ""
-                    office = ""
+            if temp_contact_telandloc.count > 0 {
+                if let text = temp_contact_telandloc[0].text{
+                    let contactInformation:[String] = text.clearWhiteSpace()
+                    if contactInformation.count == 3{
+                        email = contactInformation[0]
+                        tel = contactInformation[1]
+                        office = contactInformation[2]
+                        print("office: \(office)")
+                    }else{
+                        email = ""
+                        tel = ""
+                        office = ""
+                    }
                 }
+            }else{
+                email = ""
+                tel = ""
+                office = ""
+ 
             }
+            
             
             
             

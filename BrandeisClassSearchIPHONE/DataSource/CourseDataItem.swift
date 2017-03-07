@@ -172,16 +172,20 @@ class CourseDataItem {
             //get teacherPic
             let teacherPic = doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='right']//div[@id='photo']//img//@src")
             
-            if let url = teacherPic[0].text {
-                print("loading teacher pic")
-                do{
+            if teacherPic.count > 0 {
+                if let url = teacherPic[0].text {
+                    print("loading teacher pic")
+                    do{
                     
-                    let data = try Data(contentsOf: URL(string : url)!)
-                    pictureList.append(data)
-                } catch {
-                    print("loading teacher pic failed")
+                        let data = try Data(contentsOf: URL(string : url)!)
+                        pictureList.append(data)
+                    } catch {
+                        print("loading teacher pic failed")
+                    }
                 }
             }
+            
+            
             
             //get teacher education
             let teacherEdu = doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='left']//div[@id='degrees']/text()")//[preceding-sibling::br]

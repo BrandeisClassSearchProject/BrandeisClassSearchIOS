@@ -9,8 +9,9 @@ import MMDrawerController
 
 class LeftSideViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
 
-    var menuItems:[String] = ["Class Search","My Classes","My Schedule","Links"]
+    var menuItems:[String] = ["Class Search","My Classes","Links"]
 
+    var menuIcons:[UIImage] = [#imageLiteral(resourceName: "find"),#imageLiteral(resourceName: "sch"),#imageLiteral(resourceName: "bookmarkblack")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class LeftSideViewController: UIViewController, UITableViewDataSource,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mycell = tableView.dequeueReusableCell(withIdentifier: "LeftSideTableCell", for: indexPath) as! LeftSideTableViewCell
         mycell.LeftSideMenuLabel.text = menuItems[indexPath.row]
+        mycell.icon.image = menuIcons[indexPath.row]
         return mycell;
         
     }
@@ -49,11 +51,6 @@ class LeftSideViewController: UIViewController, UITableViewDataSource,UITableVie
             doSwitch(SomeViewController: classesViewController)
             break;
         case 2 :
-            print("Switch to Schedule")
-            let scheduleViewController = self.storyboard?.instantiateViewController(withIdentifier: "MySchedule") as! MyScheduleViewController
-            doSwitch(SomeViewController: scheduleViewController)
-            break;
-        case 3 :
             print("Switch to Links")
             let linksViewController = self.storyboard?.instantiateViewController(withIdentifier: "LinksTable") as! LinksTableViewController
             doSwitch(SomeViewController: linksViewController)

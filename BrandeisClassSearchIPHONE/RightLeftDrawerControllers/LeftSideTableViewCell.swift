@@ -8,6 +8,8 @@ class LeftSideTableViewCell: UITableViewCell {
 
     //@IBOutlet weak var LeftSideMenuItemLabel: UIView!
     
+    @IBOutlet var icon: UIImageView!
+    
     @IBOutlet weak var LeftSideMenuLabel: UILabel!
     
     override func awakeFromNib() {
