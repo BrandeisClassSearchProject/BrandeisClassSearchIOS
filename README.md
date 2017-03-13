@@ -1,5 +1,5 @@
 
-![Class Search](https://github.com/rozoalex/AVL-tree/blob/master/search%20class.gif?raw=true | width=100)
+![Class Search](https://github.com/rozoalex/AVL-tree/blob/master/search%20class.gif?raw=true | width=70)
 
 This is the ios version of Brandeis Class Search
 
