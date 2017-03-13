@@ -8,6 +8,12 @@ target 'BrandeisClassSearchIPHONE' do
 	pod 'Kanna', '~> 2.1.0'
     pod 'NVActivityIndicatorView'
     pod 'MMDrawerController', '~> 0.5.7'
+    pod 'SDWebImage', '~>3.8'
+    pod "KCFloatingActionButton", "~> 2.1.0"
+    pod 'Charts/Realm'
+    
+    
+    
     
   
   # Pods for BrandeisClassSearchIPHONE

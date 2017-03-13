@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (4.2.0)
+  - Charts/Core (3.0.1)
+  - Charts/Realm (3.0.1):
+    - Charts/Core
+    - RealmSwift (~> 1.1)
   - Kanna (2.1.1)
+  - KCFloatingActionButton (2.1.2)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
@@ -14,19 +19,35 @@ PODS:
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
   - NVActivityIndicatorView (3.1)
+  - Realm (1.1.0):
+    - Realm/Headers (= 1.1.0)
+  - Realm/Headers (1.1.0)
+  - RealmSwift (1.1.0):
+    - Realm (= 1.1.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Charts/Realm
   - Kanna (~> 2.1.0)
+  - KCFloatingActionButton (~> 2.1.0)
   - MMDrawerController (~> 0.5.7)
   - NVActivityIndicatorView
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  KCFloatingActionButton: 1b22ce95d44b51915280df8a8b277eae4a06c3f1
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   NVActivityIndicatorView: 9f47e8a4affb860ef729aeec99b1550219e6c233
+  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
+  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 9c4d7f4e44a63beb02cc3a6c3dcde13f7ad15880
+PODFILE CHECKSUM: a60b5be2fdee33af4b8d44ba0deaddaec0562826
 
 COCOAPODS: 1.1.1
