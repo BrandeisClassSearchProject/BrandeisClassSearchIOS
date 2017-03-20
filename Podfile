@@ -11,7 +11,8 @@ target 'BrandeisClassSearchIPHONE' do
     pod 'SDWebImage', '~>3.8'
     pod "KCFloatingActionButton", "~> 2.1.0"
     pod 'Charts/Realm'
-    
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
     
     
     

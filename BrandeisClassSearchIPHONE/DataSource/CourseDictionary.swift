@@ -101,7 +101,7 @@ class CourseDictionary {
                         tempCourseInfoArray.append(line)
                         if(line.hasPrefix(markName)){
                             let courseName = line.replacingOccurrences(of: markName, with: "")
-                            if !courseName.hasPrefix(" LBF") && isName{//hard code 实现 需要改 parse的java code
+                            if !courseName.hasPrefix(" LBF") && isName{//parse的java code
                                 nameToIdDic?.updateValue(prevCourse, forKey: courseName)
                                 idToNameDic?.updateValue(courseName, forKey: prevCourse)
                                 print("\(prevCourse)  <=>  \(courseName)")

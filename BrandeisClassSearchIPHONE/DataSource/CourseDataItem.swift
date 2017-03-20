@@ -56,7 +56,7 @@ class CourseDataItem {
     //no internet connection during init step, nothing is done
     //resultlList is not empty only if execute() is called
     init(rawDataItem: String) {
-        print("sssgqrhe")
+        
         let rawData = rawDataItem.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         for s in attributeList{
             if rawData.hasPrefix(getHeader(atrr: s)){

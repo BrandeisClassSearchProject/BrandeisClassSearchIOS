@@ -32,6 +32,9 @@
 		1C4E9FA91E1022E1008E5725 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */; };
 		1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */; };
 		1C794F0C1E15481A00307F3A /* CourseDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C794F0B1E15481A00307F3A /* CourseDictionary.swift */; };
+		1C91B51B1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */; };
+		1C91B51C1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */; };
+		1C91B51E1E803B8800F8C4BA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */; };
 		1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */; };
 		1CB4D8351E3D254600675048 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8341E3D254600675048 /* MyClassesViewController.swift */; };
 		1CB4D8371E3DB83B00675048 /* MyClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8361E3DB83B00675048 /* MyClassesCell.swift */; };
@@ -130,6 +133,8 @@
 		1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
 		1C794F0B1E15481A00307F3A /* CourseDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDictionary.swift; sourceTree = "<group>"; };
+		1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		1CA4DA896B0CF1F68EDA05F8 /* Pods-BrandeisClassSearchIPHONETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONETests/Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; sourceTree = "<group>"; };
 		1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedClasses.xcdatamodel; sourceTree = "<group>"; };
 		1CB4D8341E3D254600675048 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +259,7 @@
 			children = (
 				1C183C451E3A678E0077E507 /* TodayViewController.swift */,
 				1C183C471E3A678E0077E507 /* MainInterface.storyboard */,
+				1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */,
 				1C183C4A1E3A678E0077E507 /* Info.plist */,
 			);
 			path = ClassScheduleWidget;
@@ -292,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				1C794F0B1E15481A00307F3A /* CourseDictionary.swift */,
+				1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */,
 			);
 			name = CourseDatabase;
 			sourceTree = "<group>";
@@ -597,6 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C183C491E3A678E0077E507 /* MainInterface.storyboard in Resources */,
+				1C91B51C1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +614,7 @@
 			files = (
 				1CD5CE281E13F7DD0014D330 /* Data.txt in Resources */,
 				1CEB42E41E0999DF00B36E9C /* LaunchScreen.storyboard in Resources */,
+				1C91B51B1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */,
 				1CEB42E11E0999DF00B36E9C /* Assets.xcassets in Resources */,
 				1CEB42DF1E0999DF00B36E9C /* Main.storyboard in Resources */,
 			);
@@ -783,6 +792,7 @@
 				1CD5CE1D1E136B7F0014D330 /* LeftSideViewController.swift in Sources */,
 				1C794F0C1E15481A00307F3A /* CourseDictionary.swift in Sources */,
 				1C36AF311E31400500C88DEB /* BooksTableViewController.swift in Sources */,
+				1C91B51E1E803B8800F8C4BA /* FirebaseService.swift in Sources */,
 				1CB4D8391E4107BD00675048 /* BooksAmazonPageController.swift in Sources */,
 				1C1567031E26AE10009F98AF /* TableCellYear.swift in Sources */,
 				1C1567051E26AE67009F98AF /* TableCellTime.swift in Sources */,
@@ -898,6 +908,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -911,6 +922,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

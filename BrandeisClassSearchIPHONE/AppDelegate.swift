@@ -9,6 +9,8 @@
 import UIKit
 import MMDrawerController
 import CoreData
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //var isAtViewController = false
     
 
+    
+//    
+//    var window: UIWindow?
+//    
+//    func application(application: UIApplication,
+//                     didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)
+//        -> Bool {
+//            //            return true
+//    }
+//
+//    
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         print("didFinishLaunchingWithOptions in AppDelegate")
@@ -82,7 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        
+        FIRApp.configure()
+
         
 //        centerVC.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Title 1", size: 20)!]
         return true
