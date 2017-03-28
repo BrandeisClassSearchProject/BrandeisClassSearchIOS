@@ -133,7 +133,7 @@
 		1C4E9FA81E1022E1008E5725 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		1C4E9FAA1E102301008E5725 /* LinksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
 		1C794F0B1E15481A00307F3A /* CourseDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDictionary.swift; sourceTree = "<group>"; };
-		1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../ClassScheduleWidget/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		1CA4DA896B0CF1F68EDA05F8 /* Pods-BrandeisClassSearchIPHONETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONETests/Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; sourceTree = "<group>"; };
 		1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedClasses.xcdatamodel; sourceTree = "<group>"; };
@@ -259,7 +259,6 @@
 			children = (
 				1C183C451E3A678E0077E507 /* TodayViewController.swift */,
 				1C183C471E3A678E0077E507 /* MainInterface.storyboard */,
-				1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */,
 				1C183C4A1E3A678E0077E507 /* Info.plist */,
 			);
 			path = ClassScheduleWidget;
@@ -412,6 +411,7 @@
 				1CEB42E01E0999DF00B36E9C /* Assets.xcassets */,
 				1CEB42E21E0999DF00B36E9C /* LaunchScreen.storyboard */,
 				1CEB42E51E0999DF00B36E9C /* Info.plist */,
+				1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */,
 				1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */,
 				1CD5CE271E13F7DD0014D330 /* Data.txt */,
 			);
@@ -903,12 +903,13 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = HCTJ7F8C95;
 				INFOPLIST_FILE = ClassScheduleWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE.ClassScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -917,12 +918,13 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = HCTJ7F8C95;
 				INFOPLIST_FILE = ClassScheduleWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE.ClassScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1026,6 +1028,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = HCTJ7F8C95;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1034,6 +1037,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1046,6 +1050,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = HCTJ7F8C95;
 				INFOPLIST_FILE = BrandeisClassSearchIPHONE/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rozoalex.BrandeisClassSearchIPHONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1053,6 +1058,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
