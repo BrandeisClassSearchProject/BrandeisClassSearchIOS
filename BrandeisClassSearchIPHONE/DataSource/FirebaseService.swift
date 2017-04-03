@@ -9,6 +9,7 @@ import Firebase
 
 class FirebaseService {
     
+<<<<<<< HEAD
     //static let shared = FirebaseService()
     
     init() {
@@ -19,6 +20,14 @@ class FirebaseService {
         return FIRDatabase.database().reference()
     }
     
+=======
+    static let shared = FirebaseService()
+    
+    var BASE_REF: FIRDatabaseReference {
+        return FIRDatabase.database().reference()
+    }
+    
+>>>>>>> refs/remotes/Offical/master
     var SEMESTER_REF: FIRDatabaseReference {
         return BASE_REF.child("1171")
     }
