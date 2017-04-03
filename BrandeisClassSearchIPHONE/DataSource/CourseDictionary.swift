@@ -32,11 +32,17 @@ class CourseDictionary {
     var input: String?
     var terms: [String]? // An array of all the terms in dictionary
     var allTermDictionary: [[String: [String]]]?
-    var idToNameDic: [String: String]?
-    var nameToIdDic: [String: String]?
-    var updateTime: String?
-    var history: [String]?
     
+    var idToNameDic: [String: String]?
+    var fbIdToNameDic: [String: String]?
+    //The firebase version of id to name dictionary
+    var nameToIdDic: [String: String]?
+    var fbNameToIdDic: [String: String]?
+    //The firebase version of name to id dictionary
+    
+    var updateTime: String?
+    var history: [String]? //stores all the history search
+    var firebase: FirebaseService //instance of firebase service, all data will be requested from here
     
     convenience init(fileName: String){
         self.init(fileName: fileName, type: "txt")
@@ -44,10 +50,13 @@ class CourseDictionary {
 
     
     init(fileName: String, type: String){
+        firebase = FirebaseService()
         txt = "ready"
         history=[]
         idToNameDic=[:]
+        fbIdToNameDic = firebase.idToName() // test fb
         nameToIdDic=[:]
+        fbNameToIdDic = firebase.nameToId() // test fb
         allTermDictionary=[]
         input = fileName+"."+type
         let path = Bundle.main.path(forResource: "Data", ofType: "txt")
@@ -177,17 +186,42 @@ class CourseDictionary {
             }
         }
         
-        for c in (nameToIdDic?.keys)!{
-            if c.uppercased().contains(fixedID){
-                temp.append((nameToIdDic?[c])!+"\n"+c)
+        for s in (idToNameDic?.keys)!{
+            if s.hasPrefix(fixedID) {
+                temp.append(s+"\n"+(idToNameDic?[s])!)
                 i += 1
+            }
+            if i >= suggestionLength{
+                return temp.sorted()
+            }
+        }
+        
+        //test fb
+        var j = 0
+        for c in (fbNameToIdDic?.keys)!{
+            if c.uppercased().contains(fixedID){
+                print("FIREBASE RESULT: "+(fbNameToIdDic?[c])!+"\n"+c)
+                j += 1
             
-                if i >= suggestionLength{
-                    return temp.sorted()
+                if j >= suggestionLength{
+                    break
 
                 }
             }
         }
+        
+        for s in (fbIdToNameDic?.keys)!{
+            if s.hasPrefix(fixedID) {
+                print("FIREBASE RESULT: "+s+"\n"+(fbIdToNameDic?[s])!)
+                j += 1
+            }
+            if j >= suggestionLength{
+                break
+            }
+        }
+        //test fb
+        
+        
         
         return temp.sorted()
     }
@@ -195,6 +229,10 @@ class CourseDictionary {
     //with the input of a course name, return the array of attributes it has
     //return [] if the course does not exist
     func search(courseID: String) -> [String]{
+        print("FIREBASE RESULTS\n")
+        print(firebase.search(courseID: courseID)) //test fb
+        print("FIREBASE RESULTS\n")
+
         if allTermDictionary == nil{
             print("Error: empty allTermDictionary")
             return []

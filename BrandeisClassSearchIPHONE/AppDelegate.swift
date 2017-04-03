@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        FIRApp.configure()
+        //FIRApp.configure()
 
         
 //        centerVC.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Title 1", size: 20)!]

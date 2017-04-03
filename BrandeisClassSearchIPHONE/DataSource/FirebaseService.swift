@@ -9,7 +9,11 @@ import Firebase
 
 class FirebaseService {
     
-    static let shared = FirebaseService()
+    //static let shared = FirebaseService()
+    
+    init() {
+        FIRApp.configure()
+    }
     
     var BASE_REF: FIRDatabaseReference {
         return FIRDatabase.database().reference()
@@ -25,7 +29,7 @@ class FirebaseService {
     //If not search the rest of terms 
     //as soon as one match is found, return it
     //This function will be called by CourseDictionary.search(courseID: String)
-    //the format of returned array should be ["NAME: XXXX","TIMES: XXXX"......]
+    //the format of returned array should be ["NAME: XXXX","TIME: XXXX"......]
     //The headers are crutial
     //All headers are listed in the Attribute enum in CourseDataItem.swift in CourseDataStructForMainList folder
     func search(courseID: String) -> [String]{
