@@ -274,7 +274,7 @@ class CourseDataItem {
                 return []
             }
             tempString.append(body[0].text!)
-            desc[0]=tempString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            desc[0]=tempString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: "<br />", with: "\n")
             print("parseWithKannaDescription done  \(desc[0])")
             return desc
         }else{

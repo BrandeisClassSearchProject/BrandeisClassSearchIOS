@@ -186,9 +186,9 @@ class CourseDictionary {
             }
         }
         
-        for s in (idToNameDic?.keys)!{
-            if s.hasPrefix(fixedID) {
-                temp.append(s+"\n"+(idToNameDic?[s])!)
+        for c in (nameToIdDic?.keys)!{
+            if c.uppercased().contains(fixedID) {
+                temp.append((nameToIdDic?[c])!+"\n"+c)
                 i += 1
             }
             if i >= suggestionLength{
@@ -198,17 +198,6 @@ class CourseDictionary {
         
         //test fb
         var j = 0
-        for c in (fbNameToIdDic?.keys)!{
-            if c.uppercased().contains(fixedID){
-                print("FIREBASE RESULT: "+(fbNameToIdDic?[c])!+"\n"+c)
-                j += 1
-            
-                if j >= suggestionLength{
-                    break
-
-                }
-            }
-        }
         
         for s in (fbIdToNameDic?.keys)!{
             if s.hasPrefix(fixedID) {
@@ -219,6 +208,19 @@ class CourseDictionary {
                 break
             }
         }
+        
+        for c in (fbNameToIdDic?.keys)!{
+            if c.uppercased().contains(fixedID){
+                print("FIREBASE RESULT: "+(fbNameToIdDic?[c])!+"\n"+c)
+                j += 1
+                
+                if j >= suggestionLength{
+                    break
+                    
+                }
+            }
+        }
+        
         //test fb
         
         
@@ -229,7 +231,9 @@ class CourseDictionary {
     //with the input of a course name, return the array of attributes it has
     //return [] if the course does not exist
     func search(courseID: String) -> [String]{
+        
         print("FIREBASE RESULTS\n")
+        print(courseID)
         print(firebase.search(courseID: courseID)) //test fb
         print("FIREBASE RESULTS\n")
 
