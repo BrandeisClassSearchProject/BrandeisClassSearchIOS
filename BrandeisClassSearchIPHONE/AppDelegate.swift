@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         courseDictionary = CourseDictionary(fileName: "Data")
+        courseDictionary?.start()
+        
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -101,6 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
 //        centerVC.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Title 1", size: 20)!]
+        print("didFinishLaunchingWithOptions in AppDelegate Done")
         return true
     }
     

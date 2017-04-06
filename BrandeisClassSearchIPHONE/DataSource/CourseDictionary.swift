@@ -34,15 +34,17 @@ class CourseDictionary {
     var allTermDictionary: [[String: [String]]]?
     
     var idToNameDic: [String: String]?
-    var fbIdToNameDic: [String: String]?
+    
+    var fbIdToNameDic: [String: String]
     //The firebase version of id to name dictionary
     var nameToIdDic: [String: String]?
-    var fbNameToIdDic: [String: String]?
+    
+    var fbNameToIdDic: [String: String]
     //The firebase version of name to id dictionary
     
     var updateTime: String?
     var history: [String]? //stores all the history search
-    var firebase: FirebaseService //instance of firebase service, all data will be requested from here
+    var firebase: FirebaseService? //instance of firebase service, all data will be requested from here
     
     convenience init(fileName: String){
         self.init(fileName: fileName, type: "txt")
@@ -50,13 +52,14 @@ class CourseDictionary {
 
     
     init(fileName: String, type: String){
-        firebase = FirebaseService()
+        
         txt = "ready"
         history=[]
         idToNameDic=[:]
-        fbIdToNameDic = firebase.idToName() // test fb
+        fbIdToNameDic = ["isDone":"F"] // test fb
         nameToIdDic=[:]
-        fbNameToIdDic = firebase.nameToId() // test fb
+        fbNameToIdDic = ["isDone":"F"] // test fb
+        
         allTermDictionary=[]
         input = fileName+"."+type
         let path = Bundle.main.path(forResource: "Data", ofType: "txt")
@@ -86,7 +89,7 @@ class CourseDictionary {
                 if i2%14 == 1 {
                     if(prevCourse != "" && (!tempCourseInfoArray.isEmpty)){
                         isName=true
-                        print("put \(prevCourse), tempCourseInfoArray: \(tempCourseInfoArray[2]+", "+tempCourseInfoArray[1]+"...\n\n")")
+                        //print("put \(prevCourse), tempCourseInfoArray: \(tempCourseInfoArray[2]+", "+tempCourseInfoArray[1]+"...\n\n")")
                         singleTermDictionary.updateValue(tempCourseInfoArray, forKey: prevCourse)
                     }//put a new value in the dic with the previos course name
 
@@ -113,7 +116,7 @@ class CourseDictionary {
                             if !courseName.hasPrefix(" LBF") && isName{//parse的java code
                                 nameToIdDic?.updateValue(prevCourse, forKey: courseName)
                                 idToNameDic?.updateValue(courseName, forKey: prevCourse)
-                                print("\(prevCourse)  <=>  \(courseName)")
+                                //print("\(prevCourse)  <=>  \(courseName)")
                                 isName=false
                             }
                             
@@ -139,6 +142,11 @@ class CourseDictionary {
         print("Time : \(timeInterval) seconds")
         
 
+    }
+    
+    func start(){
+        firebase = FirebaseService(courseDict: self)//test fb
+        firebase?.start()
     }
     
     func addHistory(newHist: String) {
@@ -172,13 +180,45 @@ class CourseDictionary {
     
     
     func suggestions(courseID: String) -> [String]{
+        if fbIdToNameDic["isDone"] != "T" {
+            return []
+        }
+        
+        
         let fixedID = tryToUnderstandUserInput(userInput: courseID)
         var temp:[String] = []
         var i = 0
         
-        for s in (idToNameDic?.keys)!{
+//        //test fb
+//        var j = 0
+//        for s in (fbIdToNameDic.keys){
+//            if s.hasPrefix(fixedID) {
+//                print("FIREBASE RESULT: "+s+"\n"+(fbIdToNameDic[s])!)
+//                j += 1
+//            }
+//            if j >= suggestionLength{
+//                break
+//            }
+//        }
+//        
+//        for c in (fbNameToIdDic.keys){
+//            if c.uppercased().contains(fixedID){
+//                print("FIREBASE RESULT: "+(fbNameToIdDic[c])!+"\n"+c)
+//                j += 1
+//                
+//                if j >= suggestionLength{
+//                    break
+//                    
+//                }
+//            }
+//        }
+//        //test fb
+        
+        
+        
+        for s in (fbIdToNameDic.keys){
             if s.hasPrefix(fixedID) {
-                temp.append(s+"\n"+(idToNameDic?[s])!)
+                temp.append(s+"\n"+(fbIdToNameDic[s])!)
                 i += 1
             }
             if i >= suggestionLength{
@@ -186,9 +226,9 @@ class CourseDictionary {
             }
         }
         
-        for c in (nameToIdDic?.keys)!{
+        for c in (fbNameToIdDic.keys){
             if c.uppercased().contains(fixedID) {
-                temp.append((nameToIdDic?[c])!+"\n"+c)
+                temp.append((fbNameToIdDic[c])!+"\n"+c)
                 i += 1
             }
             if i >= suggestionLength{
@@ -196,32 +236,9 @@ class CourseDictionary {
             }
         }
         
-        //test fb
-        var j = 0
         
-        for s in (fbIdToNameDic?.keys)!{
-            if s.hasPrefix(fixedID) {
-                print("FIREBASE RESULT: "+s+"\n"+(fbIdToNameDic?[s])!)
-                j += 1
-            }
-            if j >= suggestionLength{
-                break
-            }
-        }
         
-        for c in (fbNameToIdDic?.keys)!{
-            if c.uppercased().contains(fixedID){
-                print("FIREBASE RESULT: "+(fbNameToIdDic?[c])!+"\n"+c)
-                j += 1
-                
-                if j >= suggestionLength{
-                    break
-                    
-                }
-            }
-        }
         
-        //test fb
         
         
         
@@ -234,7 +251,7 @@ class CourseDictionary {
         
         print("FIREBASE RESULTS\n")
         print(courseID)
-        print(firebase.search(courseID: courseID)) //test fb
+        print(firebase?.search(courseID: courseID)) //test fb
         print("FIREBASE RESULTS\n")
 
         if allTermDictionary == nil{

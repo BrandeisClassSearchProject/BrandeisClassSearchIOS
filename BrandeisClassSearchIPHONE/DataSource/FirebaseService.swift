@@ -9,11 +9,13 @@ import Firebase
 
 class FirebaseService {
     
-
-    //static let shared = FirebaseService()
+    let courseDictionary: CourseDictionary
     
-    init() {
+    //static let shared = FirebaseService()
+    //input two dictionary that will be assigned
+    init(courseDict: CourseDictionary) {
         FIRApp.configure()
+        courseDictionary = courseDict
     }
     
     var BASE_REF: FIRDatabaseReference {
@@ -21,7 +23,7 @@ class FirebaseService {
     }
     
 
-    static let shared = FirebaseService()
+    //static let shared = FirebaseService()
     
     var SEMESTER_REF: FIRDatabaseReference {
         return BASE_REF.child("1171")
@@ -39,7 +41,7 @@ class FirebaseService {
     func search(courseID: String) -> [String]{
         
         var matchingCourses = [String]()
-        
+        //var isDone = false
         BASE_REF.observeSingleEvent(of: .value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 print("Semester: \(semester.key)")
@@ -53,18 +55,35 @@ class FirebaseService {
                     
                 }
             }
+            print("matchingCouses")
+            print(matchingCourses)
+            print("Firebase Search Done")
+            //isDone = true
             
         })
-        return matchingCourses
+        
+        //while !isDone{}
+                return matchingCourses
+    }
+    
+    
+    //start downloading from fb
+    func start(){
+        print("start FirebaseService")
+        nameToId()
+        idToName() 
+        
+        
     }
     
     
     //These two function will return a dictionary(map) of course names to course id
     //and a dictionary(map) of course id to course names
     //These will be called only once in CourseDictionary initialzation
-    func nameToId() -> [String:String] {
+    private func nameToId() {
         
-        var nameIdDict = [String:String]()
+        
+        //var nameIdDict = [String:String]()
         
         BASE_REF.observe(.value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
@@ -72,19 +91,25 @@ class FirebaseService {
                     if data.hasChild("NAME") {
                         let className = data.childSnapshot(forPath: "NAME").value as! String
                         let classId = data.key
-                        nameIdDict[className] = classId
+                        //print("className:\(className) --> \(classId)")
+                        self.courseDictionary.fbNameToIdDic[className] = classId
+                        
                     }
                 }
             }
+            self.courseDictionary.fbNameToIdDic["isDone"] = "T"
+            print("done nameToId()")
             
         })
         
-        return nameIdDict
+        
+        //print(nameIdToDict)
+        
     }
     
-    func idToName() -> [String:String] {
+    private func idToName(){
         
-        var idNameDict = [String:String]()
+        
         
         BASE_REF.observe(.value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
@@ -92,14 +117,19 @@ class FirebaseService {
                     if data.hasChild("NAME") {
                         let className = data.childSnapshot(forPath: "NAME").value as! String
                         let classId = data.key
-                        idNameDict[classId] = className
+                        //print("classId:\(classId) --> \(className)")
+                        self.courseDictionary.fbIdToNameDic[classId] = className
                     }
                 }
             }
+            self.courseDictionary.fbIdToNameDic["isDone"] = "T"
+            print("done idToName()")
             
         })
         
-        return idNameDict
+        
+        //print(idNameDict)
+        
 
     }
     
