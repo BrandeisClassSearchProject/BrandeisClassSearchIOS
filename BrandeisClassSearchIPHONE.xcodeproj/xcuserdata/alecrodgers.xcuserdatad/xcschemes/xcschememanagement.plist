@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BrandeisClassSearchIPHONE.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>ClassScheduleWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1C183C401E3A678E0077E507</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CEB42D51E0999DF00B36E9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CEB42E91E0999DF00B36E9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CEB42F41E0999DF00B36E9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
