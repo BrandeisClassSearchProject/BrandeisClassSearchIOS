@@ -58,7 +58,7 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if (searchText as NSString).length > 2 || searchText.uppercased()=="FA"{
+        if (searchText as NSString).length > 2 || searchText.uppercased()=="FA" || searchText.uppercased()=="PE" || searchText.uppercased()=="HS" || searchText.uppercased()=="ED"{
             print("search for" + searchText)
             
             suggestions = appDel.courseDictionary!.suggestions(courseID: searchText)
