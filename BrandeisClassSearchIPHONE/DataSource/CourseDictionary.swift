@@ -263,13 +263,18 @@ class CourseDictionary {
             print("find it in \(terms![0])")
             return result + [markTerm+terms![0]]
         }else{
-            var i=1
+            //var i = 1
+            var i = 0
             while i < (terms?.count)! {
                 if let result = allTermDictionary?[i][reasonedInput]{
                     print("find it in \(terms![i])")
                     return result + [markTerm+terms![i]]
                 }else{
                     i += 1
+                    if i >= (allTermDictionary?.count)!{
+                        print("not found")
+                        return []
+                    }
                 }
             }
         }

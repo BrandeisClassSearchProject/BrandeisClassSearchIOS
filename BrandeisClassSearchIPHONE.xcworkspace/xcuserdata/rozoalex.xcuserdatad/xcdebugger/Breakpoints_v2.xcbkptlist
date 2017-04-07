@@ -249,11 +249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/DataSource/Teacher.swift"
-            timestampString = "509999725.397215"
+            timestampString = "513272923.228022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "init(htmlString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -265,11 +265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/DataSource/Teacher.swift"
-            timestampString = "509999725.397215"
+            timestampString = "513272923.228022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "init(htmlString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -361,11 +361,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/DataSource/Teacher.swift"
-            timestampString = "509999725.397215"
+            timestampString = "513272923.228022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "makeTeacherAttribute(text:)"
             landmarkType = "7">
          </BreakpointContent>

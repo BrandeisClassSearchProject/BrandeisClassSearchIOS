@@ -103,25 +103,8 @@ class Teacher {
             
             
             
-//            let titles = doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='left']//div/p")
-//            for t in titles{
-//                if let text_t = t.text{
-//                    print("in titles line: \(text_t)")
-//                }else{
-//                    print("in titles line: NO STRING, TEXT_T IS NIL!")
-//                }
-//                
-//            }
-//            
-//            let contents = doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='left']//div/text()")
-//            for t in contents{
-//                if let text_t = t.text{
-//                    print("in contents line: \(text_t)")
-//                }else{
-//                    print("in contents line: NO STRING, TEXT_T IS NIL!")
-//                }
-//                
-//            }
+
+            
             
             
             let allcontents = doc.xpath("//body//div[@id='wrapper']//div[@id='banner']//div[@id='content']//div[@class='left']/div")
@@ -145,7 +128,7 @@ class Teacher {
                     //print("content: \(text)")
                 }
               
-                print("---div in allcontents---")
+                //print("---div in allcontents---")
             }
         
         }else{
@@ -192,9 +175,9 @@ class Teacher {
         
         for char in text.characters {
             
-            if !findStart{
-                print("before start: \(char)")
-            }
+            //if !findStart{
+                //print("before start: \(char)")
+            //}
             
             if char != " " && char != "\n" && char != "\r"  && char != "\r\n"{
                 findStart = true
@@ -299,7 +282,7 @@ extension String{
             }
             prevChar = c
         }
-        print("tempChars:---\(tempChars)---")
+        //print("tempChars:---\(tempChars)---")
         return String(tempChars)
     }
 }

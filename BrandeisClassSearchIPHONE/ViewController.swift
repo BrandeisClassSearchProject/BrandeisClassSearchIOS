@@ -443,7 +443,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         
         
-    }//单击左上 打开菜单
+    }//click to open menu
  
     
     func RightSideMenuOpen() {

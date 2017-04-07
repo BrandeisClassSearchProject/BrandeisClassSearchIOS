@@ -50,6 +50,9 @@ class FirebaseService {
                         let courseName: String = (course.childSnapshot(forPath: "NAME").value as! String).lowercased()
                         if courseName.range(of: courseID.lowercased()) != nil || course.key.lowercased().range(of: courseID.lowercased()) != nil {
                             matchingCourses.append(course.key)
+                            
+                            
+                            
                         }
                     }
                     
