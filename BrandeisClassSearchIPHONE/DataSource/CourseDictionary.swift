@@ -4,9 +4,9 @@
 //
 //  Created by Yuanze Hu on 12/29/16.
 //  Copyright © 2016 Yuanze Hu. All rights reserved.
-//  a interface to modify and perform database functions 
+//  a interface to modify and perform database functions
 //  the ViewController.swift holds an instance of this
-//  
+//
 //  this class will handle all the searching action
 
 
@@ -49,7 +49,7 @@ class CourseDictionary {
     convenience init(fileName: String){
         self.init(fileName: fileName, type: "txt")
     }
-
+    
     
     init(fileName: String, type: String){
         
@@ -92,7 +92,7 @@ class CourseDictionary {
                         //print("put \(prevCourse), tempCourseInfoArray: \(tempCourseInfoArray[2]+", "+tempCourseInfoArray[1]+"...\n\n")")
                         singleTermDictionary.updateValue(tempCourseInfoArray, forKey: prevCourse)
                     }//put a new value in the dic with the previos course name
-
+                    
                     if line.hasPrefix(updateTime!){ // if we meet a new term
                         i2=0
                         prevCourse = ""
@@ -141,7 +141,7 @@ class CourseDictionary {
         print("Init Dictionary correctly")
         print("Time : \(timeInterval) seconds")
         
-
+        
     }
     
     func start(){
@@ -189,30 +189,30 @@ class CourseDictionary {
         var temp:[String] = []
         var i = 0
         
-//        //test fb
-//        var j = 0
-//        for s in (fbIdToNameDic.keys){
-//            if s.hasPrefix(fixedID) {
-//                print("FIREBASE RESULT: "+s+"\n"+(fbIdToNameDic[s])!)
-//                j += 1
-//            }
-//            if j >= suggestionLength{
-//                break
-//            }
-//        }
-//        
-//        for c in (fbNameToIdDic.keys){
-//            if c.uppercased().contains(fixedID){
-//                print("FIREBASE RESULT: "+(fbNameToIdDic[c])!+"\n"+c)
-//                j += 1
-//                
-//                if j >= suggestionLength{
-//                    break
-//                    
-//                }
-//            }
-//        }
-//        //test fb
+        //        //test fb
+        //        var j = 0
+        //        for s in (fbIdToNameDic.keys){
+        //            if s.hasPrefix(fixedID) {
+        //                print("FIREBASE RESULT: "+s+"\n"+(fbIdToNameDic[s])!)
+        //                j += 1
+        //            }
+        //            if j >= suggestionLength{
+        //                break
+        //            }
+        //        }
+        //
+        //        for c in (fbNameToIdDic.keys){
+        //            if c.uppercased().contains(fixedID){
+        //                print("FIREBASE RESULT: "+(fbNameToIdDic[c])!+"\n"+c)
+        //                j += 1
+        //
+        //                if j >= suggestionLength{
+        //                    break
+        //
+        //                }
+        //            }
+        //        }
+        //        //test fb
         
         
         
@@ -251,9 +251,9 @@ class CourseDictionary {
         
         print("FIREBASE RESULTS\n")
         print(courseID)
-        print(firebase?.search(courseID: courseID)) //test fb
+        print(firebase?.search(courseID: courseID, completionHandler: searchCompleted(courseData:))) //test fb
         print("FIREBASE RESULTS\n")
-
+        
         if allTermDictionary == nil{
             print("Error: empty allTermDictionary")
             return []
@@ -286,8 +286,18 @@ class CourseDictionary {
     func tryToUnderstandUserInput(userInput: String) -> String{
         let s = userInput.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         // to be completed
-    
+        
         return s
     }
+    
+    
+    func searchCompleted(courseData: [String]) {
+        print("========================")
+        for data in courseData {
+            print(data)
+        }
+        print("========================")
+    }
+    
     
 }

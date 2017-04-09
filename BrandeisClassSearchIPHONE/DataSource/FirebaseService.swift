@@ -22,36 +22,46 @@ class FirebaseService {
         return FIRDatabase.database().reference()
     }
     
-
+    
     //static let shared = FirebaseService()
     
     var SEMESTER_REF: FIRDatabaseReference {
         return BASE_REF.child("1171")
     }
     
-    //This function will search the lastest term in Firebase 
+    //This function will search the lastest term in Firebase
     //If the corresponding course is found with given ID
     //return that
-    //If not search the rest of terms 
+    //If not search the rest of terms
     //as soon as one match is found, return it
     //This function will be called by CourseDictionary.search(courseID: String)
     //the format of returned array should be ["NAME: XXXX","TIME: XXXX"......]
     //The headers are crutial
     //All headers are listed in the Attribute enum in CourseDataItem.swift in CourseDataStructForMainList folder
-    func search(courseID: String) -> [String]{
-        
-        var matchingCourses = [String]()
-        //var isDone = false
+    func search(courseID: String, completionHandler: @escaping ([String]) -> ()) {
+        var courseData = [String]()
         BASE_REF.observeSingleEvent(of: .value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                print("Semester: \(semester.key)")
                 for course in semester.children.allObjects as! [FIRDataSnapshot] {
                     if(course.hasChild("NAME")) {
                         let courseName: String = (course.childSnapshot(forPath: "NAME").value as! String).lowercased()
                         if courseName.range(of: courseID.lowercased()) != nil || course.key.lowercased().range(of: courseID.lowercased()) != nil {
-                            matchingCourses.append(course.key)
                             
                             
+                            for data in course.children.allObjects as! [FIRDataSnapshot] {
+                                print("DATA")
+                                if(data.key == "TIME") {
+                                    var timeString = "TIME: "
+                                    for time in data.children.allObjects as! [FIRDataSnapshot] {
+                                        timeString.append("\(time.value as! String)#")
+                                    }
+                                    courseData.append(timeString)
+                                } else {
+                                    courseData.append("\(data.key): \(data.value as! String)")
+                                }
+                            }
+                            
+                            completionHandler(courseData)
                             
                         }
                     }
@@ -59,14 +69,8 @@ class FirebaseService {
                 }
             }
             print("matchingCouses")
-            print(matchingCourses)
             print("Firebase Search Done")
-            //isDone = true
-            
         })
-        
-        //while !isDone{}
-                return matchingCourses
     }
     
     
@@ -74,7 +78,7 @@ class FirebaseService {
     func start(){
         print("start FirebaseService")
         nameToId()
-        idToName() 
+        idToName()
         
         
     }
@@ -133,12 +137,12 @@ class FirebaseService {
         
         //print(idNameDict)
         
-
+        
     }
     
     
     
     
-
+    
     
 }
