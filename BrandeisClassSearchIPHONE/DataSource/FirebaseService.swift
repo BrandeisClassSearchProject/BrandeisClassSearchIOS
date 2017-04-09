@@ -48,6 +48,7 @@ class FirebaseService {
                         if courseName.range(of: courseID.lowercased()) != nil || course.key.lowercased().range(of: courseID.lowercased()) != nil {
                             
                             
+                            
                             for data in course.children.allObjects as! [FIRDataSnapshot] {
                                 print("DATA")
                                 if(data.key == "TIME") {
