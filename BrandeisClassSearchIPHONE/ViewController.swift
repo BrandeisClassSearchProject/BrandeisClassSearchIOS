@@ -42,6 +42,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         //appDel.isAtViewController = true
         
         if (courseDictionary?.history!.count)! > 0 {
+            //Test fb
+            courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!, completionHandler: searchCompletion(searchResult: ))
+            //test fb
             let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
             courseDataItemStore = CourseDataItemStore(searchResultArray: ar!)
             var ss = ""
@@ -139,6 +142,15 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         
     }
     
+    func searchCompletion(searchResult:[String]){
+        let courseDataItemStoreTemp = CourseDataItemStore(searchResultArray: searchResult)
+        print("couseDataItemStoreTemp:")
+        courseDataItemStoreTemp.summary();
+        print("\ncouseDataItemStore:")
+        courseDataItemStore?.summary();
+        //tableView.reloadData();
+        
+    }
     
     //MARK: - fab button handling
     func saveHandler(_: UIAlertAction!) {

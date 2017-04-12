@@ -40,8 +40,12 @@ class FirebaseService {
     //All headers are listed in the Attribute enum in CourseDataItem.swift in CourseDataStructForMainList folder
     func search(courseID: String, completionHandler: @escaping ([String]) -> ()) {
         var courseData = [String]()
+        var isFound = false
         BASE_REF.observeSingleEvent(of: .value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                if isFound{
+                    break
+                }
                 for course in semester.children.allObjects as! [FIRDataSnapshot] {
                     if(course.hasChild("NAME")) {
                         let courseName: String = (course.childSnapshot(forPath: "NAME").value as! String).lowercased()
@@ -63,7 +67,8 @@ class FirebaseService {
                             }
                             
                             completionHandler(courseData)
-                            
+                            isFound = true
+                            break
                         }
                     }
                     

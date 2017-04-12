@@ -261,6 +261,10 @@ class CourseDictionary {
         let reasonedInput = tryToUnderstandUserInput(userInput: courseID)
         if let result = allTermDictionary?[0][reasonedInput] {
             print("find it in \(terms![0])")
+            print("***********")
+            print(result)
+            print([markTerm+terms![0]])
+            print("***********")
             return result + [markTerm+terms![0]]
         }else{
             //var i = 1
@@ -268,6 +272,10 @@ class CourseDictionary {
             while i < (terms?.count)! {
                 if let result = allTermDictionary?[i][reasonedInput]{
                     print("find it in \(terms![i])")
+                    print("***********")
+                    print(result)
+                    print([markTerm+terms![i]])
+                    print("***********")
                     return result + [markTerm+terms![i]]
                 }else{
                     i += 1
@@ -282,6 +290,15 @@ class CourseDictionary {
         return []
     }
     
+    //concurrent version of search
+    func search(courseID: String, completionHandler:@escaping([String]) -> ()){
+        print("FIREBASE RESULTS\n")
+        print(courseID)
+        firebase?.search(courseID: courseID, completionHandler: completionHandler)
+        print("FIREBASE RESULTS\n")
+        
+    }
+    
     //helper func to reason the user input
     func tryToUnderstandUserInput(userInput: String) -> String{
         let s = userInput.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -293,11 +310,16 @@ class CourseDictionary {
     
     func searchCompleted(courseData: [String]) {
         print("========================")
-        for data in courseData {
-            print(data)
-        }
+        print(courseData)
         print("========================")
     }
+    
+    
+    //["BLOCK: Block G", "CODE: \r\n          Fundamentals of Artificial Intelligence\r\n          \r\n\r\n         \r\n            [\r\n            \r\n          \r\n            sn\r\n                 \r\n            \r\n            ]\r\n          \r\n\r\n          \r\n            See Course Catalog for prerequisites.\r\n          \r\n\r\n      \r\n\r\n        ", "DESCRIPTION: http://registrar-prod.unet.brandeis.edu/registrar/schedule/course?acad_year=2014&crse_id=001761", "LOCATION: Volen Nat\'l Ctr for Complex119", "NAME: Fundamentals of Artificial Intelligence", "OPEN: ", "REQ: sn ", "SECTION: 1", "SYLLABUS: ", "TEACHER: http://www.brandeis.edu/facguide/person.html?emplid=e02e9cdcd77a4ce11e620139c379f43742682961", "TIME: LECTURE\nT,F  9:30 AM – 10:50 AM#"]
+    
+    //["BOOKS: http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=1391&term_id-1=1171&div-1=&dept-1=COSI&course-1=101A&sect-1=1", "DESCRIPTION: http://registrar-prod.unet.brandeis.edu/registrar/schedule/course?acad_year=2017&crse_id=001761", "NAME: Fundamentals of Artificial Intelligence", "BLOCK: N", "TIMES: T,Th  2:00 PM - 3:20 PM", "TEACHER: http://www.brandeis.edu/facguide/person.html?emplid=e02e9cdcd77a4ce11e620139c379f43742682961"]
+   //["         TERM:17 Spring"]
+    
     
     
 }

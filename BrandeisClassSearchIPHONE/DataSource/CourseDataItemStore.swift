@@ -100,5 +100,15 @@ class CourseDataItemStore {
         return isDone
     }
     
+    public func summary(){
+        for item in courseDataItemStore{
+            print(item.attribute.getHeader())
+            print(item.rawInput)
+            print(item.resultList)
+            //print(item.resultList2)
+            print("\n")
+        }
+    }
+    
     
 }
