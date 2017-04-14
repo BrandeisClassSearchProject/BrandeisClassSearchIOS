@@ -24,7 +24,12 @@ class CourseDataItemStore {
             tempCourseDataItemStore.append(courseDataItem)
         }
         
-        
+        for item in tempCourseDataItemStore {
+            print("print temp")
+            print(item.attribute.getHeader())
+            print(item.rawInput)
+            print(item.resultList)
+        }
         
         for item in tempCourseDataItemStore {
             if item.attribute == .NAME{

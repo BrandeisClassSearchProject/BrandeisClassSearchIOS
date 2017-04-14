@@ -11,7 +11,7 @@ import Alamofire
 import Kanna
 
 enum Attribute {
-    case NAME, BOOK, BLOCK, TIME, TEACHER, SYLLABUS, DESCRIPTION, TERM, ERROR
+    case NAME, BOOK, BLOCK, TEACHER, SYLLABUS, DESCRIPTION, TERM, LOCATION, REQ, SECTION, CODE, TIME, ERROR
     
     func getHeader() -> String{
         switch self {
@@ -22,8 +22,6 @@ enum Attribute {
             return "BOOKS:"
         case Attribute.BLOCK:
             return "BLOCK:"
-        case Attribute.TIME:
-            return "TIMES:"
         case Attribute.TEACHER:
             return "TEACHER:"
         case Attribute.SYLLABUS:
@@ -32,6 +30,16 @@ enum Attribute {
             return "DESCRIPTION:"
         case Attribute.TERM:
             return "TERM:"
+        case Attribute.CODE:
+            return "CODE:"
+        case Attribute.REQ:
+            return "REQ:"
+        case Attribute.SECTION:
+            return "SECTION:"
+        case Attribute.LOCATION:
+            return "LOCATION:"
+        case Attribute.TIME:
+            return "TIME:"
         case Attribute.ERROR:
             print("Error")
             return ""
@@ -39,7 +47,7 @@ enum Attribute {
     }
 }
 
-let attributeList = [Attribute.NAME,Attribute.BOOK,Attribute.BLOCK,Attribute.TIME,Attribute.TEACHER,Attribute.SYLLABUS,Attribute.DESCRIPTION,Attribute.TERM]
+let attributeList = [Attribute.NAME,Attribute.BOOK,Attribute.BLOCK,Attribute.TEACHER,Attribute.SYLLABUS,Attribute.DESCRIPTION,Attribute.TERM,Attribute.CODE,Attribute.LOCATION,Attribute.REQ,Attribute.SECTION]
 
 
 class CourseDataItem {
@@ -80,8 +88,6 @@ class CourseDataItem {
             return "BOOKS:"
         case Attribute.BLOCK:
             return "BLOCK:"
-        case Attribute.TIME:
-            return "TIMES:"
         case Attribute.TEACHER:
             return "TEACHER:"
         case Attribute.SYLLABUS:
@@ -90,6 +96,16 @@ class CourseDataItem {
             return "DESCRIPTION:"
         case Attribute.TERM:
             return "TERM:"
+        case Attribute.CODE:
+            return "CODE:"
+        case Attribute.REQ:
+            return "REQ:"
+        case Attribute.SECTION:
+            return "SECTION:"
+        case Attribute.LOCATION:
+            return "LOCATION:"
+        case Attribute.TIME:
+            return "TIME:"
         case Attribute.ERROR:
             print("Error")
             return ""

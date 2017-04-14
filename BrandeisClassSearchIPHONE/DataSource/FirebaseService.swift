@@ -41,6 +41,7 @@ class FirebaseService {
     func search(courseID: String, completionHandler: @escaping ([String]) -> ()) {
         var courseData = [String]()
         var isFound = false
+        
         BASE_REF.observeSingleEvent(of: .value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 if isFound{
@@ -51,12 +52,19 @@ class FirebaseService {
                         let courseName: String = (course.childSnapshot(forPath: "NAME").value as! String).lowercased()
                         if courseName.range(of: courseID.lowercased()) != nil || course.key.lowercased().range(of: courseID.lowercased()) != nil {
                             
+                            let id = courseID.components(separatedBy: " ")
+                            let currentTerm = semester.key.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                            print("Found \(courseID) in \(currentTerm)")
                             
+                            //add some data
+                            courseData.append("TERM:\(self.toYear(yearCode: currentTerm))")
+                            courseData.append("BOOKS:http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=1391&term_id-1=\(currentTerm)&div-1=&dept-1=\(id[0])&course-1=\(id[1])&sect-1=1")
+                            //add some data
                             
                             for data in course.children.allObjects as! [FIRDataSnapshot] {
-                                print("DATA")
+                                //print("DATA")
                                 if(data.key == "TIME") {
-                                    var timeString = "TIME: "
+                                    var timeString = "TIME:"
                                     for time in data.children.allObjects as! [FIRDataSnapshot] {
                                         timeString.append("\(time.value as! String)#")
                                     }
@@ -65,6 +73,7 @@ class FirebaseService {
                                     courseData.append("\(data.key): \(data.value as! String)")
                                 }
                             }
+                            //http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=1391&term_id-1=1171&div-1=&dept-1=COSI&course-1=101A&sect-1=1
                             
                             completionHandler(courseData)
                             isFound = true
@@ -79,6 +88,24 @@ class FirebaseService {
         })
     }
     
+    
+    func toYear(yearCode:String) -> String {
+        let code = Int(yearCode)
+        var season = ""
+        switch code!%10 {
+        case 1:
+            season = "Spring"
+        case 2:
+            season = "Summer"
+        case 3:
+            season = "Fall"
+        default:
+            print("Error with given year code: \(yearCode)")
+            season = ""
+        }
+        return String((code!-1000)/10)+" "+season
+        
+    }
     
     //start downloading from fb
     func start(){

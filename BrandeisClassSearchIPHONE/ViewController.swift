@@ -143,10 +143,12 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     }
     
     func searchCompletion(searchResult:[String]){
+        print(searchResult)
+        
         let courseDataItemStoreTemp = CourseDataItemStore(searchResultArray: searchResult)
-        print("couseDataItemStoreTemp:")
+        print("courseDataItemStoreTemp:")
         courseDataItemStoreTemp.summary();
-        print("\ncouseDataItemStore:")
+        print("\ncourseDataItemStore:")
         courseDataItemStore?.summary();
         //tableView.reloadData();
         
