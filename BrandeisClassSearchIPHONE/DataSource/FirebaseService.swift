@@ -35,7 +35,7 @@ class FirebaseService {
     //If not search the rest of terms
     //as soon as one match is found, return it
     //This function will be called by CourseDictionary.search(courseID: String)
-    //the format of returned array should be ["NAME: XXXX","TIME: XXXX"......]
+    //the format of returned array should be ["NAME: XXXX","TIMES: XXXX"......]
     //The headers are crutial
     //All headers are listed in the Attribute enum in CourseDataItem.swift in CourseDataStructForMainList folder
     func search(courseID: String, completionHandler: @escaping ([String]) -> ()) {
@@ -43,7 +43,12 @@ class FirebaseService {
         var isFound = false
         
         BASE_REF.observeSingleEvent(of: .value, with: { (snapshot) in
-            for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
+            
+            let semesters = snapshot.children.allObjects as! [FIRDataSnapshot]
+            var semester : FIRDataSnapshot = semesters[0]
+            
+            for counter in 1...semesters.count {
+                semester = semesters[semesters.count - counter]
                 if isFound{
                     break
                 }
@@ -63,8 +68,8 @@ class FirebaseService {
                             
                             for data in course.children.allObjects as! [FIRDataSnapshot] {
                                 //print("DATA")
-                                if(data.key == "TIME") {
-                                    var timeString = "TIME:"
+                                if(data.key == "TIMES") {
+                                    var timeString = "TIMES:"
                                     for time in data.children.allObjects as! [FIRDataSnapshot] {
                                         timeString.append("\(time.value as! String)#")
                                     }

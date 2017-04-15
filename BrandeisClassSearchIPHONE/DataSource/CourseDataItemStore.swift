@@ -56,7 +56,7 @@ class CourseDataItemStore {
         
        
         for item in tempCourseDataItemStore {
-            if item.attribute != .BLOCK && item.attribute != .TERM && item.attribute != .NAME && item.attribute != .SYLLABUS  && item.attribute != .TIME{
+            if item.attribute != .BLOCK && item.attribute != .TERM && item.attribute != .NAME && item.attribute != .SYLLABUS  && item.attribute != .TIME && item.attribute != .ERROR{
                 courseDataItemStore.append(item)
             }
             

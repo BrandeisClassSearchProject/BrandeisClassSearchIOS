@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     var isReload = false //set to true during viewDidLoad, and set false when reload starts
     
+    let isLocal = true//set manully to decide if we want to fetch data from firebase or local file
+    
     var isFromMyClasses = false //different actions need to be taken if it is from clicking an 
                                 //existing course in MyClasses
 
@@ -45,13 +47,13 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             //Test fb
             courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!, completionHandler: searchCompletion(searchResult: ))
             //test fb
-            let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
-            courseDataItemStore = CourseDataItemStore(searchResultArray: ar!)
-            var ss = ""
-            for s in ar! {
-                ss  = ss + s + "\n"
+            if isLocal{
+                let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
+                courseDataItemStore = CourseDataItemStore(searchResultArray: ar!)
+                //search with local dictionary
             }
-            print(ss)
+
+            
             
         }else{
             var s=""
@@ -67,8 +69,13 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        isReload=true
         
+        if courseDataItemStore == nil{
+            isReload=false
+            //if the courseDataItemStore is empty, do nothing
+        }else{
+            isReload=true
+        }
         let but = self.navigationController?.navigationBar
         
         but?.tintColor = UIColor.white
@@ -146,11 +153,19 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         print(searchResult)
         
         let courseDataItemStoreTemp = CourseDataItemStore(searchResultArray: searchResult)
+        
+        
         print("courseDataItemStoreTemp:")
         courseDataItemStoreTemp.summary();
         print("\ncourseDataItemStore:")
-        courseDataItemStore?.summary();
-        //tableView.reloadData();
+        courseDataItemStore?.summary()
+        if !isLocal{
+            isReload = true
+            //enable the reloading
+            courseDataItemStore = courseDataItemStoreTemp
+            tableView.reloadData()
+        }
+        
         
     }
     
@@ -266,7 +281,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 }
                 break
             default:
-                print(" Not implemented yet......")
+                print(" Not implemented yet......=>\(a.getHeader())")
             }
             
         }
@@ -279,7 +294,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     //standard, get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if courseDataItemStore == nil {
-            print("courseDataItemStore is fucking nil ?! ")
+            //print("courseDataItemStore is fucking nil ?! ")
             return 0
         }else{
             print("courseDataItemStore has \(courseDataItemStore!.courseDataItemStore.count) items ")

@@ -39,7 +39,7 @@ enum Attribute {
         case Attribute.LOCATION:
             return "LOCATION:"
         case Attribute.TIME:
-            return "TIME:"
+            return "TIMES:"
         case Attribute.ERROR:
             print("Error")
             return ""
@@ -47,7 +47,7 @@ enum Attribute {
     }
 }
 
-let attributeList = [Attribute.NAME,Attribute.BOOK,Attribute.BLOCK,Attribute.TEACHER,Attribute.SYLLABUS,Attribute.DESCRIPTION,Attribute.TERM,Attribute.CODE,Attribute.LOCATION,Attribute.REQ,Attribute.SECTION]
+let attributeList = [Attribute.NAME,Attribute.BOOK,Attribute.BLOCK,Attribute.TEACHER,Attribute.SYLLABUS,Attribute.DESCRIPTION,Attribute.TERM,Attribute.CODE,Attribute.LOCATION,Attribute.REQ,Attribute.SECTION,Attribute.TIME]
 
 
 class CourseDataItem {
@@ -105,7 +105,7 @@ class CourseDataItem {
         case Attribute.LOCATION:
             return "LOCATION:"
         case Attribute.TIME:
-            return "TIME:"
+            return "TIMES:"
         case Attribute.ERROR:
             print("Error")
             return ""
