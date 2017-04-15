@@ -35,6 +35,8 @@
 		1C91B51B1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */; };
 		1C91B51C1E7F147B00F8C4BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */; };
 		1C91B51E1E803B8800F8C4BA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */; };
+		1C95A4961EA1E1FC0088C13A /* TableCellLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */; };
+		1C95A49A1EA1E68C0088C13A /* TableCellReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C95A4991EA1E68C0088C13A /* TableCellReq.swift */; };
 		1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */; };
 		1CB4D8351E3D254600675048 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8341E3D254600675048 /* MyClassesViewController.swift */; };
 		1CB4D8371E3DB83B00675048 /* MyClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8361E3DB83B00675048 /* MyClassesCell.swift */; };
@@ -135,6 +137,8 @@
 		1C794F0B1E15481A00307F3A /* CourseDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDictionary.swift; sourceTree = "<group>"; };
 		1C91B51A1E7F147B00F8C4BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../ClassScheduleWidget/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellLocation.swift; sourceTree = "<group>"; };
+		1C95A4991EA1E68C0088C13A /* TableCellReq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellReq.swift; sourceTree = "<group>"; };
 		1CA4DA896B0CF1F68EDA05F8 /* Pods-BrandeisClassSearchIPHONETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONETests/Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; sourceTree = "<group>"; };
 		1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedClasses.xcdatamodel; sourceTree = "<group>"; };
 		1CB4D8341E3D254600675048 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				1C1567061E26AEDA009F98AF /* TableCellDescription.swift */,
 				1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */,
 				1CEEE6AE1E2DEBDD00F18871 /* TableCellWaiting.swift */,
+				1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */,
+				1C95A4991EA1E68C0088C13A /* TableCellReq.swift */,
 			);
 			path = MainTableCells;
 			sourceTree = "<group>";
@@ -802,6 +808,7 @@
 				1C1567071E26AEDA009F98AF /* TableCellDescription.swift in Sources */,
 				1CE666551E592EFF007C7E1F /* Teacher.swift in Sources */,
 				1CEEE6AF1E2DEBDD00F18871 /* TableCellWaiting.swift in Sources */,
+				1C95A49A1EA1E68C0088C13A /* TableCellReq.swift in Sources */,
 				1C36AF331E31405F00C88DEB /* BooksCell.swift in Sources */,
 				1CE6665D1E5E2605007C7E1F /* TeacherDetailCellRating.swift in Sources */,
 				1CEB42DC1E0999DF00B36E9C /* ViewController.swift in Sources */,
@@ -815,6 +822,7 @@
 				1C4E9FAB1E102301008E5725 /* LinksTableViewController.swift in Sources */,
 				1C1566FD1E26543C009F98AF /* CourseDataItemStore.swift in Sources */,
 				1C2AB5041E23975300858533 /* CourseDataItem.swift in Sources */,
+				1C95A4961EA1E1FC0088C13A /* TableCellLocation.swift in Sources */,
 				1CD5CE2C1E1402F40014D330 /* StreamReader.swift in Sources */,
 				1CB4D8351E3D254600675048 /* MyClassesViewController.swift in Sources */,
 				1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */,
