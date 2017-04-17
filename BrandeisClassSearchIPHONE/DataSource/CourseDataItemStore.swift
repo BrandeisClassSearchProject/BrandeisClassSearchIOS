@@ -11,6 +11,10 @@ import Foundation
 class CourseDataItemStore {
     var courseDataItemStore: [CourseDataItem]
     
+    var section = ""
+    
+    var code = ""
+    
     
     init(searchResultArray : [String]) {
         var time = ""
@@ -21,7 +25,14 @@ class CourseDataItemStore {
             if courseDataItem.attribute == .TIME {
                 time = courseDataItem.rawInput
             }
-            tempCourseDataItemStore.append(courseDataItem)
+            if courseDataItem.attribute == .CODE{
+                code = courseDataItem.rawInput
+            }else if courseDataItem.attribute == .SECTION{
+                section = courseDataItem.rawInput
+            }else{
+                tempCourseDataItemStore.append(courseDataItem)
+            }
+            
         }
         
         for item in tempCourseDataItemStore {

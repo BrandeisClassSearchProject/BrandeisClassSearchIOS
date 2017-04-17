@@ -11,6 +11,9 @@ import UIKit
 class TableCellYear: UITableViewCell {
 
     @IBOutlet weak var yearLabel: UILabel!
+    
+    @IBOutlet var code: UITextView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

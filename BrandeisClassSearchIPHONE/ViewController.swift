@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     var isReload = false //set to true during viewDidLoad, and set false when reload starts
     
-    let isLocal = true//set manully to decide if we want to fetch data from firebase or local file
+    let isLocal = false//set manully to decide if we want to fetch data from firebase or local file
     
     var isFromMyClasses = false //different actions need to be taken if it is from clicking an 
                                 //existing course in MyClasses
@@ -320,9 +320,16 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             print("~setNameCell at index: \(indexPath.row)")
             let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellName", for: indexPath) as! TableCellName
             mycell.courseIDlabel.text = courseDictionary?.latestHistory()
-            print("setNameCell courseID: \(mycell.courseIDlabel.text)")
+            //print("setNameCell courseID: \(mycell.courseIDlabel.text)")
             mycell.courseNameLabel.text = courseDataItemStore?.getResult(index: indexPath.row)[0]
-            print("setNameCell courseName: \(mycell.courseNameLabel.text)")
+            if let sec = courseDataItemStore?.section {
+                if sec != "1" && sec != "" {
+                    mycell.section.text = sec
+                }else{
+                    mycell.section.text = ""
+                }
+            }
+            //print("setNameCell courseName: \(mycell.courseNameLabel.text)")
             return mycell;
         }else if a == .BLOCK {
             let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellTime", for: indexPath) as! TableCellTime
@@ -350,7 +357,13 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             print("~setTermCell at index: \(indexPath.row)")
             let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellYear", for: indexPath) as! TableCellYear
             mycell.yearLabel.text = "20" + (courseDataItemStore?.getResult(index: indexPath.row)[0])!
-            return mycell
+            if courseDataItemStore?.code == ""{
+                mycell.code.text = ""
+            }else{
+                mycell.code.text = "Code: "+(courseDataItemStore?.code)!
+
+            }
+                        return mycell
         }else if a == .DESCRIPTION{
             
             print("~setDesCell at index: \(indexPath.row)")
@@ -453,7 +466,20 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             }
         }else if a == .SYLLABUS{
             let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellSyllabus", for: indexPath)
-            
+            return mycell
+        }else if a == .LOCATION{
+            let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellLoc", for: indexPath) as! TableCellLocation
+            if let loc = (courseDataItemStore?.courseDataItemStore[indexPath.row].rawInput){
+                mycell.location.text = loc
+            }else{
+                mycell.location.text = "TBD"
+            }
+            return mycell
+        }else if a == .REQ{
+            let mycell = tableView.dequeueReusableCell(withIdentifier: "TableCellReq", for: indexPath) as! TableCellReq
+            if let req = (courseDataItemStore?.courseDataItemStore[indexPath.row].rawInput){
+                mycell.visualize(reqs: req)
+            }
             return mycell
         }else {
             print("dafuq? index:\(indexPath.row) \n \(a.getHeader())")

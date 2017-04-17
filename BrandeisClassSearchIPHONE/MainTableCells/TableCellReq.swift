@@ -20,8 +20,12 @@ class TableCellReq: UITableViewCell {
     
     @IBOutlet var place5: UIButton!
     
+    func visualize(reqs: String){
+        print("Give req string is \(reqs)")
+    }
+    
     func visualize(){
-        
+        print("No given reqs, Shouldnt be there, jusr remove empty ones")
     }
     
 
