@@ -10,8 +10,7 @@ import Firebase
 class FirebaseService {
     
     let courseDictionary: CourseDictionary
-    
-    //static let shared = FirebaseService()
+
     //input two dictionary that will be assigned
     init(courseDict: CourseDictionary) {
         FIRApp.configure()
@@ -98,6 +97,45 @@ class FirebaseService {
             print("Firebase Search Done")
         })
     }
+    
+    func searchBySemester(semester: String, courseID: String, completionHandler: @escaping ([String]) -> ()) {
+        var courseData = [String]()
+        
+        BASE_REF.child(semester).observeSingleEvent(of: .value, with: { (snapshot) in
+                for course in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    if(course.hasChild("NAME")) {
+                        let courseName: String = (course.childSnapshot(forPath: "NAME").value as! String).lowercased()
+                        if courseName.range(of: courseID.lowercased()) != nil || course.key.lowercased().range(of: courseID.lowercased()) != nil {
+                            
+                            let id = courseID.components(separatedBy: " ")
+                            //add some data
+                            courseData.append("BOOKS:http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=1391&term_id-1=\(semester)&div-1=&dept-1=\(id[0])&course-1=\(id[1])&sect-1=1")
+                            //add some data
+                            
+                            for data in course.children.allObjects as! [FIRDataSnapshot] {
+                                //print("DATA")
+                                if(data.key == "TIMES") {
+                                    var timeString = "TIMES:"
+                                    for time in data.children.allObjects as! [FIRDataSnapshot] {
+                                        timeString.append("\(time.value as! String)#")
+                                    }
+                                    courseData.append(timeString)
+                                } else {
+                                    courseData.append("\(data.key): \(data.value as! String)")
+                                }
+                            }
+                            //http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=1391&term_id-1=1171&div-1=&dept-1=COSI&course-1=101A&sect-1=1
+                            
+                            completionHandler(courseData)
+                            break
+                        }
+                    }
+                }
+            print("matchingCouses")
+            print("Firebase Search Done")
+        })
+    }
+    
     
     
     func toYear(yearCode:String) -> String {
