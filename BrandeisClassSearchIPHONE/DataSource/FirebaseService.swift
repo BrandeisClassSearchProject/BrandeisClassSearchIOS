@@ -131,8 +131,7 @@ class FirebaseService {
                         }
                     }
                 }
-            print("matchingCouses")
-            print("Firebase Search Done")
+            print("Firebase Search by Semester Done")
         })
     }
     

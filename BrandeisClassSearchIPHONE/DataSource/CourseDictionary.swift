@@ -299,6 +299,16 @@ class CourseDictionary {
         
     }
     
+    //concurrent version of search by semester
+    func search(semester: String,courseID: String, completionHandler:@escaping([String]) -> ()){
+        print("FIREBASE RESULTS searchBySemester \(semester)\n")
+        print(courseID)
+        firebase?.searchBySemester(semester: semester, courseID: courseID, completionHandler: completionHandler)
+        print("FIREBASE RESULTS searchBySemester \(semester)\n")
+    }
+    
+    
+    
     //helper func to reason the user input
     func tryToUnderstandUserInput(userInput: String) -> String{
         let s = userInput.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)

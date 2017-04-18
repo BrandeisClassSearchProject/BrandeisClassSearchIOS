@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         if (courseDictionary?.history!.count)! > 0 {
             //Test fb
             courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!, completionHandler: searchCompletion(searchResult: ))
+            
             //test fb
             if isLocal{
                 let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
