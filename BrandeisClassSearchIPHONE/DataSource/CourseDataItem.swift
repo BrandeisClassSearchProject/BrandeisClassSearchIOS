@@ -272,19 +272,19 @@ class CourseDataItem {
         if let doc = Kanna.HTML(html: htmlString, encoding: String.Encoding.utf8) {
             var desc = [""]
             var tempString = ""
-            let requirements = doc.css("body span")
-            for s in requirements{// get all the university requirements like sn, hum ...
-                if var a = s.text {
-                    a = a.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    if a != "" {
-                        tempString.append(a+"  ")
-                    }
-                }
-            }
-            
-            if requirements.count>0{
-                tempString.append("\n")
-            }
+//            let requirements = doc.css("body span")
+//            for s in requirements{// get all the university requirements like sn, hum ...
+//                if var a = s.text {
+//                    a = a.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//                    if a != "" {
+//                        tempString.append(a+"  ")
+//                    }
+//                }
+//            }
+//            
+//            if requirements.count>0{
+//                tempString.append("\n")
+//            }
             let body = doc.css("body p")
             if body.count<1{
                 return []

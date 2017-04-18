@@ -44,6 +44,7 @@ class MyScheduleViewController: UIViewController, UITableViewDataSource,UITableV
                 
                 var i = 0
                 for c in (courses?.courses)!{//for each course, draw schedule with color from getColor call
+                    print("time input: \(c.Time)")
                     paint(time: c.Time, color: Colors.getColor(index: i))
                     i = i + 1
                 }
@@ -141,23 +142,24 @@ class MyScheduleViewController: UIViewController, UITableViewDataSource,UITableV
     private func getDaySchedule(time: String) ->  [oneDaySchedule]{
         var daysSchedule: [oneDaySchedule] = []
         let a = time.components(separatedBy: "\n")
-        if a.count < 2 {
-            print("ERROR: the input time string does not have at least 2 lines, a.count==\(a.count), time: String == \(time)")
-            return daysSchedule
-        }
-        for i in 1...a.count-1{
+        //let a = time.components(separatedBy: "  ")
+//        if a.count < 2 {
+//            print("ERROR: the input time string does not have at least 2 lines, a.count==\(a.count), time: String == \(time)")
+//            return daysSchedule
+//        }
+        for i in 0...a.count-1{
             let dayAndtime = a[i].components(separatedBy: "  ")//the first is eg T,Th. The second is eg 3:30 PM - 4:50 PM
             if dayAndtime.count < 2 {
                 print("ERROR: failed to separted day and time, a[i]==\(a[i])")
-                return daysSchedule
-            }
-            let days = dayAndtime[0].components(separatedBy: ",")
-            if days.count < 1 {
-                print("ERROR: the number of days is less than 1, which does not make sense, when separted by (,), dayAndtime[0]==\(dayAndtime[0])")
-                return daysSchedule
-            }
-            for d in days {
-                daysSchedule.append(oneDaySchedule(day:d, timeTags: getTags(time: dayAndtime[1])))
+            }else{
+                let days = dayAndtime[0].components(separatedBy: ",")
+                if days.count < 1 {
+                    print("ERROR: the number of days is less than 1, which does not make sense, when separted by (,), dayAndtime[0]==\(dayAndtime[0])")
+                }else{
+                    for d in days {
+                        daysSchedule.append(oneDaySchedule(day:d, timeTags: getTags(time: dayAndtime[1])))
+                    }
+                }
             }
         }
         return daysSchedule
@@ -167,7 +169,7 @@ class MyScheduleViewController: UIViewController, UITableViewDataSource,UITableV
     //return [] if the given string is not valid
     private func getTags(time: String) -> [Int]{
         var tags:[Int] = []
-        let timeInterval = time.components(separatedBy: " - ")
+        let timeInterval = time.components(separatedBy: " – ")
         if timeInterval.count != 2 {
             print("ERROR: the timeInterval length is not 2 in getTags(time: \(time))")
             return tags

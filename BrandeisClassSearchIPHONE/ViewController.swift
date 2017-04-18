@@ -27,7 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     @IBOutlet weak var tableView: UITableView!
     
+    
     var leftBut: UIButton?
+    var isRot = false //if the button is rotated
 
     
     
@@ -86,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
         }else{
             
-            
+            //MARK: right button
             let rightBut = UIButton(type: .custom)
             rightBut.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
             rightBut.addTarget(self, action: #selector(ViewController.RightSideMenuOpen), for: .touchUpInside)
@@ -97,11 +99,12 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             
             self.title = "Brandeis Class Search"
             
+            //MARK: left button
             self.leftBut = UIButton(type: .custom)
             self.leftBut?.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
             self.leftBut?.addTarget(self, action: #selector(ViewController.LeftSideMenuOpen), for: .touchUpInside)
             self.leftBut?.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
-            //leftBut.tintColor = UIColor.white
+            
             self.navigationItem.setLeftBarButtonItems([UIBarButtonItem(customView: leftBut!)], animated: false)
             
             
@@ -123,16 +126,20 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 
                 
                 
-                let alert = UIAlertController(title: "Save class", message: "Do you want to save this class and put it into your schedule?", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Save class", message: "Save this class?", preferredStyle: .alert)
                 
                 let yesOption = UIAlertAction(title: "Yes", style: .default, handler: self.saveHandler)
                 
+                
+                
                 let noOption = UIAlertAction(title: "Not yet", style: .default, handler: self.notSaveHandler)
+                
+                alert.addAction(noOption)
                 
                 alert.addAction(yesOption)//save the course here
                 
                 
-                alert.addAction(noOption)
+                
                 
                 self.present(alert, animated: true, completion: nil)
                 fab.close()
@@ -148,6 +155,11 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         
         
     }
+    
+ 
+    
+    
+    
     
     func searchCompletion(searchResult:[String]){
         print(searchResult)
@@ -173,8 +185,22 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     func saveHandler(_: UIAlertAction!) {
         if courseDataItemStore != nil{
             if courseDataItemStore?.courseDataItemStore.count != 0 {
+                
+                var tempTime = ""
+                let timeArray = (courseDataItemStore?.getResult(index: 2)[0])!.components(separatedBy: "#")
+                for t in timeArray {
+                    if t != ""{
+                        let tArray = t.components(separatedBy: "\n")
+                        if tempTime == ""{
+                            tempTime = tArray[0]+"\n"+tArray[2]
+                        }else{
+                            tempTime.append("\n\(tArray[1])")
+                        }
+                    }
+                }
+                
                 appDel.setSavedCourse(
-                    courseID: (courseDictionary?.latestHistory())!, courseName: (courseDataItemStore?.getResult(index: 0)[0])!, courseYear: (courseDataItemStore?.getResult(index: 1)[0])!, courseTime: (courseDataItemStore?.getResult(index: 2)[0])!)
+                    courseID: (courseDictionary?.latestHistory())!, courseName: (courseDataItemStore?.getResult(index: 0)[0])!, courseYear: (courseDataItemStore?.getResult(index: 1)[0])!, courseTime: tempTime)
             }else{
                 print("the courseDataItemStore is empty, nothing can be saved")
             }
@@ -265,7 +291,20 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                     let myVC = storyboard?.instantiateViewController(withIdentifier: "MySchedule") as! MyScheduleViewController
                     
                     if let a = courseDictionary?.latestHistory() {
-                        myVC.courses = CoursesInTerm(num: 1, term: cdis.getResult(index: 1)[0], courses: [Course(courseID: a,courseName: cdis.getResult(index: 0)[0],Time: cdis.getResult(index: indexPath.row)[0])])
+                        var tempTime = ""
+                        let timeArray = cdis.getResult(index: indexPath.row)[0].components(separatedBy: "#")
+                        for t in timeArray {
+                            if t != ""{
+                                let tArray = t.components(separatedBy: "\n")
+                                if tempTime == ""{
+                                    tempTime = tArray[2]
+                                }else{
+                                    tempTime.append("\n\(tArray[1])")
+                                }
+                            }
+                        }
+                        //cdis.getResult(index: indexPath.row)[0]
+                        myVC.courses = CoursesInTerm(num: 1, term: cdis.getResult(index: 1)[0], courses: [Course(courseID: a,courseName: cdis.getResult(index: 0)[0],Time: tempTime)])
                         navigationController?.pushViewController(myVC, animated: true)
                     }
                 }
@@ -324,7 +363,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             mycell.courseNameLabel.text = courseDataItemStore?.getResult(index: indexPath.row)[0]
             if let sec = courseDataItemStore?.section {
                 if sec != "1" && sec != "" {
-                    mycell.section.text = sec
+                    mycell.section.text = "section: "+sec
                 }else{
                     mycell.section.text = ""
                 }
@@ -340,7 +379,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 return UITableViewCell()
             }
             mycell.blockLabel.text = result?[0]
-            print("setBlockCell : \(mycell.blockLabel.text)")
+            //print("setBlockCell : \(mycell.blockLabel.text)")
             var temp = ""
             for i in 1..<result!.count {
                 if i == result!.count-1 {
@@ -349,8 +388,11 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                     temp = temp + result![i] + "\n"
                 }
             }
-            mycell.timeLabel.text = temp
-            print("setBlockCell : \(temp)")
+            
+            
+            mycell.timeLabel.text = temp.replacingOccurrences(of: "#", with: "\n")
+            
+            
             return mycell
 
         }else if a == .TERM{
@@ -488,12 +530,40 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         
     }
     
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        print("present present")
+        super.present(viewControllerToPresent, animated: flag, completion: completion)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        super .viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        super .viewWillDisappear(animated)
+    }
+    
     //MARK: - Open Menus
+    
+    public func rotateLeftButton(){
+    
+        UIView.animate(withDuration: 0.3) {
+            if self.isRot{
+                self.isRot = false
+                self.leftBut?.transform = CGAffineTransform(rotationAngle: CGFloat(0))
+            }else{
+                self.isRot = true
+                self.leftBut?.transform = CGAffineTransform(rotationAngle: CGFloat(-.pi / 2.0))
+            }
+        }
+    }
 
     func LeftSideMenuOpen() {
-        
-        
-        
+        print("left but clicked")
+        rotateLeftButton()
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         
@@ -507,5 +577,6 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     }
 
 }
+
 
 

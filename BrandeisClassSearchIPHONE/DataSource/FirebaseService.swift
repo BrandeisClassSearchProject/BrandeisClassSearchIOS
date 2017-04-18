@@ -71,7 +71,13 @@ class FirebaseService {
                                 if(data.key == "TIMES") {
                                     var timeString = "TIMES:"
                                     for time in data.children.allObjects as! [FIRDataSnapshot] {
-                                        timeString.append("\(time.value as! String)#")
+                                        if timeString == "TIMES:"{
+                                            timeString.append("\(time.value as! String)")
+                                        }else{
+                                            timeString.append("#\(time.value as! String)")
+                                        }
+                                        
+                                        
                                     }
                                     courseData.append(timeString)
                                 } else {
