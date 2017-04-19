@@ -11,20 +11,11 @@ import UIKit
 class LocationViewController: UIViewController {
     
     var locations:String = ""
-
+    
     @IBOutlet var showLocation: UILabel!
 
-    
-    
     override func viewDidLoad() {
         showLocation.text = locations
         super.viewDidLoad()
-
-        
     }
-
-
-
-
-
 }

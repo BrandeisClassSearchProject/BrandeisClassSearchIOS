@@ -13,6 +13,8 @@ target 'BrandeisClassSearchIPHONE' do
     pod 'Charts/Realm'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
     
     
     

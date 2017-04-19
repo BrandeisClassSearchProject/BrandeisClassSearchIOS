@@ -24,6 +24,13 @@ PODS:
   - FirebaseInstanceID (1.0.8)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
@@ -57,6 +64,8 @@ DEPENDENCIES:
   - Charts/Realm
   - Firebase/Core
   - Firebase/Database
+  - GoogleMaps
+  - GooglePlaces
   - Kanna (~> 2.1.0)
   - KCFloatingActionButton (~> 2.1.0)
   - MMDrawerController (~> 0.5.7)
@@ -72,6 +81,8 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 6de92187481ff0e8e124064f21742e95ee883b02
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
@@ -82,6 +93,6 @@ SPEC CHECKSUMS:
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: c3316b4bcb66cdca863e5861f6fac175707c4ce2
+PODFILE CHECKSUM: d31ed3cb55e3b0b0950135a73d5d122876475349
 
 COCOAPODS: 1.1.1
