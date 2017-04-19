@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514319758.429436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514319758.429436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -105,11 +105,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514319758.429436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "458"
-            endingLineNumber = "458"
+            startingLineNumber = "454"
+            endingLineNumber = "454"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -121,11 +121,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514318298.762908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -217,11 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514318298.762908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,11 +313,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514319758.429436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
+            startingLineNumber = "455"
+            endingLineNumber = "455"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -409,11 +409,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514318298.762908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -425,13 +425,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrandeisClassSearchIPHONE/ViewController.swift"
-            timestampString = "514233944.894578"
+            timestampString = "514318298.762908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "ViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrandeisClassSearchIPHONE/DataSource/CourseDictionary.swift"
+            timestampString = "514313682.960629"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "IdNameTwoSideDictionary"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrandeisClassSearchIPHONE.CourseDictionary.__deallocating_deinit"
+                  moduleName = "BrandeisClassSearchIPHONE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozoalex/Desktop/BrandeisClassSearchIPHONE%20copy/BrandeisClassSearchIPHONE/DataSource/CourseDictionary.swift"
+                  timestampString = "514313684.249338"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrandeisClassSearchIPHONE.CourseDictionary.deinit"
+                  moduleName = "BrandeisClassSearchIPHONE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozoalex/Desktop/BrandeisClassSearchIPHONE%20copy/BrandeisClassSearchIPHONE/DataSource/CourseDictionary.swift"
+                  timestampString = "514313684.251109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

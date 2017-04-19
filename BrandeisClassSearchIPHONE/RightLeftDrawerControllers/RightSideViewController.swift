@@ -69,7 +69,7 @@ class RightSideViewController: UITableViewController, UISearchBarDelegate{
             print("suggestions:\n\(s)")
             self.tableView.reloadData()
         }else  {
-            suggestions = [] //replace with history later 改成显示历史！
+            suggestions = [] //replace with history later 
             self.tableView.reloadData()
 
         }

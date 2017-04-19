@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="117" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7iC-9o-sVP" id="LYO-i4-bD0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017 Spring" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIp-sI-R6i">
@@ -495,7 +495,7 @@
                                             <outlet property="reqText" destination="gjA-Vm-tWC" id="6FW-VT-l2b"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableCellLoc" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCellLoc" id="Nuz-0Z-shL" customClass="TableCellLocation" customModule="BrandeisClassSearchIPHONE" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableCellLoc" selectionStyle="none" indentationWidth="10" reuseIdentifier="TableCellLoc" id="Nuz-0Z-shL" customClass="TableCellLocation" customModule="BrandeisClassSearchIPHONE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="738" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nuz-0Z-shL" id="ers-aU-rBP">
@@ -2257,23 +2257,46 @@
             </objects>
             <point key="canvasLocation" x="844" y="709.29535232383819"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="N0b-xR-l30">
+        <!--Location View Controller-->
+        <scene sceneID="DUU-P0-q6N">
             <objects>
-                <viewController id="snT-k9-bES" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kWX-mB-2sL" customClass="LocationViewController" customModule="BrandeisClassSearchIPHONE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bmk-Pz-xr8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gq2-Ac-SNA"/>
+                        <viewControllerLayoutGuide type="top" id="xXK-3t-ho1"/>
+                        <viewControllerLayoutGuide type="bottom" id="3VK-2Z-kax"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vOK-kd-1Vu">
+                    <view key="view" contentMode="scaleToFill" id="ITs-rJ-qtZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A72-Yr-AzG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-8a-uOg">
+                                <rect key="frame" x="51" y="199" width="233" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YAp-8a-uOg" firstAttribute="leading" secondItem="ITs-rJ-qtZ" secondAttribute="leadingMargin" constant="35" id="2k2-Of-S0Q"/>
+                            <constraint firstItem="YAp-8a-uOg" firstAttribute="top" secondItem="xXK-3t-ho1" secondAttribute="bottom" constant="179.5" id="43G-aq-E5Y"/>
+                            <constraint firstItem="A72-Yr-AzG" firstAttribute="leading" secondItem="ITs-rJ-qtZ" secondAttribute="leading" id="6cg-lC-jyo"/>
+                            <constraint firstItem="A72-Yr-AzG" firstAttribute="top" secondItem="xXK-3t-ho1" secondAttribute="bottom" id="Dwc-y7-uU3"/>
+                            <constraint firstItem="3VK-2Z-kax" firstAttribute="top" secondItem="A72-Yr-AzG" secondAttribute="bottom" id="N8J-Ie-GeK"/>
+                            <constraint firstAttribute="trailing" secondItem="A72-Yr-AzG" secondAttribute="trailing" id="WU0-Yi-92w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YAp-8a-uOg" secondAttribute="trailing" constant="75" id="bVg-Tu-gU1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="showLocation" destination="YAp-8a-uOg" id="ajp-bD-I4c"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd9-Bf-UIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ya1-zR-w9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="744"/>
+            <point key="canvasLocation" x="1623.2" y="724.58770614692662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hQ7-B7-Z3E">

@@ -43,27 +43,12 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         super.viewDidLoad()
         courseDictionary = appDel.courseDictionary!
         
-        //appDel.isAtViewController = true
-        
         if (courseDictionary?.history!.count)! > 0 {
             //Test fb
             courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!, completionHandler: searchCompletion(searchResult: ))
             
-            //test fb
-            if isLocal{
-                let ar = courseDictionary?.search(courseID: (courseDictionary?.latestHistory())!)
-                courseDataItemStore = CourseDataItemStore(searchResultArray: ar!)
-                //search with local dictionary
-            }
-
-            
-            
         }else{
-            var s=""
-            for term in (courseDictionary?.terms)!{
-                s = s+term+"\n"
-            }
-            
+            print("empty main table")
         }
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 63.0/255.0, green: 81.0/255.0, blue: 181.0/255.0, alpha: 1.0)
@@ -319,6 +304,17 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
                 }else{
                     print("ERROR")
                 }
+                break
+            case .LOCATION:
+                
+                let myVC = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+                
+                if let loc = (courseDataItemStore?.courseDataItemStore[indexPath.row].rawInput){
+                    //myVC.showLocation.text = loc
+                    myVC.locations = loc
+                    navigationController?.pushViewController(myVC, animated: true)
+                }
+                
                 break
             default:
                 print(" Not implemented yet......=>\(a.getHeader())")

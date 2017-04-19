@@ -37,6 +37,7 @@
 		1C91B51E1E803B8800F8C4BA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91B51D1E803B8800F8C4BA /* FirebaseService.swift */; };
 		1C95A4961EA1E1FC0088C13A /* TableCellLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */; };
 		1C95A49A1EA1E68C0088C13A /* TableCellReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C95A4991EA1E68C0088C13A /* TableCellReq.swift */; };
+		1CAE098D1EA7E00A00D366FE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE098C1EA7E00A00D366FE /* LocationViewController.swift */; };
 		1CB4D7F61E3BC37B00675048 /* UserSavedClasses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D7F41E3BC37B00675048 /* UserSavedClasses.xcdatamodeld */; };
 		1CB4D8351E3D254600675048 /* MyClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8341E3D254600675048 /* MyClassesViewController.swift */; };
 		1CB4D8371E3DB83B00675048 /* MyClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4D8361E3DB83B00675048 /* MyClassesCell.swift */; };
@@ -140,6 +141,7 @@
 		1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellLocation.swift; sourceTree = "<group>"; };
 		1C95A4991EA1E68C0088C13A /* TableCellReq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellReq.swift; sourceTree = "<group>"; };
 		1CA4DA896B0CF1F68EDA05F8 /* Pods-BrandeisClassSearchIPHONETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrandeisClassSearchIPHONETests/Pods-BrandeisClassSearchIPHONETests.release.xcconfig"; sourceTree = "<group>"; };
+		1CAE098C1EA7E00A00D366FE /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		1CB4D7F51E3BC37B00675048 /* UserSavedClasses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedClasses.xcdatamodel; sourceTree = "<group>"; };
 		1CB4D8341E3D254600675048 /* MyClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesViewController.swift; sourceTree = "<group>"; };
 		1CB4D8361E3DB83B00675048 /* MyClassesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClassesCell.swift; sourceTree = "<group>"; };
@@ -239,11 +241,12 @@
 				1C1567001E26AD16009F98AF /* TableCellName.swift */,
 				1C1567021E26AE10009F98AF /* TableCellYear.swift */,
 				1C1567041E26AE67009F98AF /* TableCellTime.swift */,
+				1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */,
 				1C1567061E26AEDA009F98AF /* TableCellDescription.swift */,
 				1C15670A1E26AFAC009F98AF /* TableCellBooks.swift */,
 				1CEEE6AE1E2DEBDD00F18871 /* TableCellWaiting.swift */,
-				1C95A4951EA1E1FC0088C13A /* TableCellLocation.swift */,
 				1C95A4991EA1E68C0088C13A /* TableCellReq.swift */,
+				1CAE098C1EA7E00A00D366FE /* LocationViewController.swift */,
 			);
 			path = MainTableCells;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				1C4675871E55572A00D43252 /* CoursesInTerms.swift in Sources */,
 				1CB4D83F1E4BD72600675048 /* Colors.swift in Sources */,
 				1C15670B1E26AFAC009F98AF /* TableCellBooks.swift in Sources */,
+				1CAE098D1EA7E00A00D366FE /* LocationViewController.swift in Sources */,
 				1C4675821E54CC3100D43252 /* MyScheduleTableViewCell.swift in Sources */,
 				1CD5CE241E13E1980014D330 /* FileUtil.swift in Sources */,
 				1CB4D83D1E47D61600675048 /* MyClassesCellHeader.swift in Sources */,

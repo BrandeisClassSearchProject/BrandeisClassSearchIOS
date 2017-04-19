@@ -28,15 +28,7 @@ class FirebaseService {
         return BASE_REF.child("1171")
     }
     
-    //This function will search the lastest term in Firebase
-    //If the corresponding course is found with given ID
-    //return that
-    //If not search the rest of terms
-    //as soon as one match is found, return it
-    //This function will be called by CourseDictionary.search(courseID: String)
-    //the format of returned array should be ["NAME: XXXX","TIMES: XXXX"......]
-    //The headers are crutial
-    //All headers are listed in the Attribute enum in CourseDataItem.swift in CourseDataStructForMainList folder
+    
     func search(courseID: String, completionHandler: @escaping ([String]) -> ()) {
         var courseData = [String]()
         var isFound = false
