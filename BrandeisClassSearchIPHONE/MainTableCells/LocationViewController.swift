@@ -17,5 +17,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         showLocation.text = locations
         super.viewDidLoad()
+        //navigationController?.navigationBar.isOpaque = true
+        
     }
 }

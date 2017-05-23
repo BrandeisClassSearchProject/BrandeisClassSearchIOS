@@ -167,17 +167,28 @@ class FirebaseService {
         
         BASE_REF.observe(.value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let semesterString = semester.key
                 for data in semester.children.allObjects as! [FIRDataSnapshot] {
                     if data.hasChild("NAME") {
                         let className = data.childSnapshot(forPath: "NAME").value as! String
                         let classId = data.key
                         //print("className:\(className) --> \(classId)")
                         self.courseDictionary.fbNameToIdDic[className] = classId
-                        
+                        if self.courseDictionary.fbNameToIdDicsWithYear[semesterString] != nil{
+                            self.courseDictionary.fbNameToIdDicsWithYear[semesterString]![className] = classId
+                        }else{
+                            self.courseDictionary.fbNameToIdDicsWithYear[semesterString] = [:]
+                            self.courseDictionary.fbNameToIdDicsWithYear[semesterString]![className] = classId
+                        }
                     }
                 }
             }
+            self.courseDictionary.fbNameToIdDicsWithYear["isDone"]![""] = "T"
             self.courseDictionary.fbNameToIdDic["isDone"] = "T"
+            print("done nameToId()\nfbIdToNameDicsWithYear.keys:")
+            print(self.courseDictionary.fbNameToIdDicsWithYear.keys)
+            print("print 1172 classes nametoid")
+            print(self.courseDictionary.fbNameToIdDicsWithYear["1172"] ?? "Nothing there ???!!!")
             print("done nameToId()")
             
         })
@@ -188,32 +199,32 @@ class FirebaseService {
     }
     
     private func idToName(){
-        
-        
-        
         BASE_REF.observe(.value, with: { (snapshot) in
             for semester in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let semesterString = semester.key
                 for data in semester.children.allObjects as! [FIRDataSnapshot] {
                     if data.hasChild("NAME") {
                         let className = data.childSnapshot(forPath: "NAME").value as! String
                         let classId = data.key
                         //print("classId:\(classId) --> \(className)")
                         self.courseDictionary.fbIdToNameDic[classId] = className
+                        if self.courseDictionary.fbIdToNameDicsWithYear[semesterString] != nil{
+                            self.courseDictionary.fbIdToNameDicsWithYear[semesterString]![classId] = className
+                        }else{
+                            self.courseDictionary.fbIdToNameDicsWithYear[semesterString] = [:]
+                            self.courseDictionary.fbIdToNameDicsWithYear[semesterString]![classId] = className
+                        }
                     }
                 }
             }
+            self.courseDictionary.fbIdToNameDicsWithYear["isDone"]![""] = "T"
             self.courseDictionary.fbIdToNameDic["isDone"] = "T"
+            print("done idToName()\nfbIdToNameDicsWithYear.keys:\n")
+            print(self.courseDictionary.fbIdToNameDicsWithYear.keys)
+            print(self.courseDictionary.fbIdToNameDicsWithYear["1171"] ?? "Nothing there ???!!!")
             print("done idToName()")
-            
         })
-        
-        
-        //print(idNameDict)
-        
-        
     }
-    
-    
     
     
     

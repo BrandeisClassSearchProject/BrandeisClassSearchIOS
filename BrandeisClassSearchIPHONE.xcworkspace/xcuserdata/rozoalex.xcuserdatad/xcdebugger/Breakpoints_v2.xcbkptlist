@@ -453,11 +453,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "BrandeisClassSearchIPHONE.CourseDictionary.__deallocating_deinit"
+                  symbolName = "BrandeisClassSearchIPHONE.IdNameTwoSideDictionary.__deallocating_deinit"
                   moduleName = "BrandeisClassSearchIPHONE"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rozoalex/Desktop/BrandeisClassSearchIPHONE%20copy/BrandeisClassSearchIPHONE/DataSource/CourseDictionary.swift"
-                  timestampString = "514313684.249338"
+                  timestampString = "517253196.702226"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -468,11 +468,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "BrandeisClassSearchIPHONE.CourseDictionary.deinit"
+                  symbolName = "BrandeisClassSearchIPHONE.IdNameTwoSideDictionary.deinit"
                   moduleName = "BrandeisClassSearchIPHONE"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rozoalex/Desktop/BrandeisClassSearchIPHONE%20copy/BrandeisClassSearchIPHONE/DataSource/CourseDictionary.swift"
-                  timestampString = "514313684.251109"
+                  timestampString = "517253196.705721"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -480,6 +480,22 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrandeisClassSearchIPHONE/DataSource/FirebaseService.swift"
+            timestampString = "517255059.877786"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "idToName()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

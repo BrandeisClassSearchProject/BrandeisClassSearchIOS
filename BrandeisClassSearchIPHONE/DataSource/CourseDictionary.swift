@@ -171,6 +171,12 @@ class CourseDictionary {
     
     //var idToNameDic: [String: String]?
     
+    var fbIdToNameDicsWithYear: [String: [String: String]]
+    //The key is semester, and values are dictionaries that stores Ids to Names
+    
+    var fbNameToIdDicsWithYear: [String: [String: String]]
+    //The key is semester, and values are dictionaries that stores Names to Ids
+    
     var fbIdToNameDic: [String: String]
     //The firebase version of id to name dictionary
     //var nameToIdDic: [String: String]?
@@ -191,10 +197,15 @@ class CourseDictionary {
         
         txt = "ready"
         history=[]
-        //idToNameDic=[:]
-        fbIdToNameDic = ["isDone":"F"] // test fb
-        //nameToIdDic=[:]
-        fbNameToIdDic = ["isDone":"F"] // test fb
+        
+        fbIdToNameDic = ["isDone":"F"]
+        fbNameToIdDic = ["isDone":"F"]
+        //initialize with indicator meaning not finish loading data
+
+        //with year
+        fbIdToNameDicsWithYear = ["isDone": ["":""]]
+        fbNameToIdDicsWithYear = ["isDone": ["":""]]
+        //with year
         
         //allTermDictionary=[]
         //input = fileName+"."+type
